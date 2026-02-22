@@ -1,0 +1,1705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Psychedelic Institute Australia — Gold Standard in Psychedelic Therapy Training</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Outfit:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* Core Colors - Professional & Clinical */
+  --primary-navy: #0f2847;
+  --navy-dark: #0a1f35;
+  --navy-light: #1a3a52;
+  --slate-blue: #4a6a7a;
+  --slate-light: #5d7d8d;
+  
+  /* Semantic Colors */
+  --clinical-blue: #1e4d7a;
+  --trust-teal: #1a6b7a;
+  --success-green: #2d7a65;
+  --accent-gold: #d4a574;
+  
+  /* Neutral Palette */
+  --white: #ffffff;
+  --off-white: #fafbfc;
+  --ice-light: #e6f1f6;
+  --ice-pale: #f0f7fa;
+  --bg-gray: #f3f6f8;
+  --border-light: #dbe5eb;
+  --border-soft: #e8eef4;
+  
+  /* Text Colors */
+  --text-primary: #0f1e2a;
+  --text-secondary: #3a4a56;
+  --text-light: #6a7a8a;
+  --text-muted: #8a94a0;
+}
+
+* { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+}
+
+html { 
+  scroll-behavior: smooth; 
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--text-primary);
+  background: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Typography System */
+h1, h2, h3, h4, h5, h6 { 
+  font-family: 'Cormorant Garamond', serif; 
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: clamp(2.8rem, 6.5vw, 4.2rem);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-weight: 500;
+  margin-bottom: 1.3rem;
+}
+
+h3 {
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+p {
+  margin-bottom: 1rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+}
+
+/* Navigation */
+nav {
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  z-index: 1000;
+  padding: 1.2rem 5%;
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: transparent;
+}
+
+nav.scrolled {
+  padding: 0.8rem 5%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(30px);
+  border-bottom: 1px solid var(--border-light);
+  box-shadow: 0 2px 20px rgba(15, 28, 71, 0.06);
+}
+
+.nav-logo { 
+  display: flex; 
+  align-items: center; 
+  gap: 0.9rem; 
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.nav-logo:hover {
+  opacity: 0.8;
+}
+
+.nav-logo-icon {
+  width: 42px; 
+  height: 42px; 
+  border-radius: 50%;
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  overflow: hidden;
+  background: var(--ice-pale);
+  border: 1px solid var(--border-light);
+  flex-shrink: 0;
+}
+
+.nav-logo-icon img { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: contain; 
+}
+
+.nav-logo-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem; 
+  font-weight: 500; 
+  color: var(--primary-navy);
+  letter-spacing: -0.01em;
+}
+
+.nav-links { 
+  display: flex; 
+  gap: 2.5rem; 
+  list-style: none; 
+  align-items: center; 
+}
+
+.nav-links a {
+  font-size: 0.75rem; 
+  font-weight: 500; 
+  color: var(--text-secondary);
+  text-decoration: none; 
+  letter-spacing: 0.08em; 
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--clinical-blue);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--clinical-blue);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-cta {
+  padding: 0.7rem 1.8rem !important; 
+  background: var(--clinical-blue) !important;
+  color: white !important; 
+  border-radius: 8px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  font-weight: 600;
+  border: none;
+}
+
+.nav-cta:hover {
+  background: var(--primary-navy) !important; 
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(30, 77, 122, 0.25);
+}
+
+.nav-cta::after {
+  display: none !important;
+}
+
+/* Hero Section */
+.hero {
+  min-height: 100vh; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  text-align: center; 
+  position: relative; 
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--ice-pale) 0%, var(--white) 50%, var(--ice-light) 100%);
+  padding-top: 120px;
+}
+
+.hero-bg-circles { 
+  position: absolute; 
+  inset: 0; 
+  overflow: hidden; 
+}
+
+.hero-bg-circle {
+  position: absolute; 
+  border-radius: 50%;
+  border: 1px solid var(--border-light); 
+  opacity: 0.25;
+}
+
+.hero-bg-circle:nth-child(1) { 
+  width: 800px; 
+  height: 800px; 
+  top: -15%; 
+  right: -5%; 
+  animation: float 18s ease-in-out infinite; 
+}
+
+.hero-bg-circle:nth-child(2) { 
+  width: 500px; 
+  height: 500px; 
+  bottom: -10%; 
+  left: -3%; 
+  animation: float 18s ease-in-out infinite reverse; 
+}
+
+.hero-bg-circle:nth-child(3) { 
+  width: 350px; 
+  height: 350px; 
+  top: 25%; 
+  left: 12%; 
+  border-color: var(--accent-gold); 
+  opacity: 0.15;
+  animation: float 15s ease-in-out infinite 2s; 
+}
+
+@keyframes float { 
+  0%, 100% { 
+    transform: translate(0, 0) scale(1); 
+    opacity: 0.2;
+  } 
+  50% { 
+    transform: translate(15px, 20px) scale(1.05); 
+    opacity: 0.3;
+  } 
+}
+
+.hero-content { 
+  position: relative; 
+  z-index: 2; 
+  max-width: 900px; 
+  padding: 2rem; 
+}
+
+.hero-logo-wrap {
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: slideUp 0.8s ease forwards 0.1s;
+}
+
+.hero-logo {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  animation: gentlePulse 5s ease-in-out infinite;
+}
+
+@keyframes gentlePulse {
+  0%, 100% { 
+    transform: scale(1); 
+    opacity: 0.9; 
+  }
+  50% { 
+    transform: scale(1.04); 
+    opacity: 1; 
+  }
+}
+
+.hero-label {
+  font-size: 0.7rem; 
+  font-weight: 600; 
+  letter-spacing: 0.15em;
+  text-transform: uppercase; 
+  color: var(--slate-light); 
+  margin-bottom: 1.5rem;
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  gap: 0.7rem;
+  opacity: 0; 
+  animation: slideUp 0.8s ease forwards 0.2s;
+}
+
+.hero-label::before, .hero-label::after { 
+  content: ''; 
+  width: 20px; 
+  height: 1px; 
+  background: var(--slate-light); 
+  opacity: 0.5; 
+}
+
+.hero h1 {
+  color: var(--primary-navy); 
+  font-weight: 600;
+  opacity: 0; 
+  animation: slideUp 0.8s ease forwards 0.3s;
+}
+
+.hero h1 em { 
+  font-style: italic; 
+  color: var(--clinical-blue); 
+  font-weight: 500; 
+}
+
+.hero-desc {
+  font-size: 1.1rem; 
+  color: var(--text-secondary); 
+  max-width: 650px;
+  margin: 0 auto 2.5rem; 
+  line-height: 1.8;
+  opacity: 0; 
+  animation: slideUp 0.8s ease forwards 0.4s;
+}
+
+.hero-actions {
+  display: flex; 
+  gap: 1.5rem; 
+  justify-content: center; 
+  align-items: center;
+  opacity: 0; 
+  animation: slideUp 0.8s ease forwards 0.5s;
+  flex-wrap: wrap;
+}
+
+@keyframes slideUp { 
+  from { 
+    opacity: 0; 
+    transform: translateY(40px); 
+  } 
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  } 
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2.5rem; 
+  border-radius: 8px;
+  font-family: 'Outfit', sans-serif; 
+  font-size: 0.85rem; 
+  font-weight: 600;
+  letter-spacing: 0.05em; 
+  text-transform: uppercase; 
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+  cursor: pointer; 
+  border: none;
+  gap: 0.5rem;
+}
+
+.btn-navy { 
+  background: var(--clinical-blue); 
+  color: white; 
+  box-shadow: 0 4px 20px rgba(30, 77, 122, 0.15);
+}
+
+.btn-navy:hover { 
+  background: var(--primary-navy); 
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(30, 77, 122, 0.3);
+}
+
+.btn-navy:active {
+  transform: translateY(-1px);
+}
+
+.btn-outline { 
+  background: transparent; 
+  color: var(--clinical-blue); 
+  border: 2px solid var(--clinical-blue);
+  box-shadow: none;
+}
+
+.btn-outline:hover { 
+  background: var(--ice-pale); 
+  color: var(--primary-navy);
+  border-color: var(--primary-navy);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(30, 77, 122, 0.15);
+}
+
+.btn-outline:active {
+  transform: translateY(-1px);
+}
+
+.announce {
+  margin-top: 3.5rem; 
+  display: inline-flex; 
+  align-items: center; 
+  gap: 1.2rem;
+  background: rgba(255, 255, 255, 0.95); 
+  border: 1px solid var(--border-light);
+  border-radius: 12px; 
+  padding: 1rem 1.8rem;
+  opacity: 0; 
+  animation: slideUp 0.8s ease forwards 0.6s;
+  box-shadow: 0 8px 30px rgba(15, 28, 71, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+.announce-badge {
+  background: var(--clinical-blue); 
+  color: white; 
+  font-size: 0.6rem;
+  font-weight: 700; 
+  letter-spacing: 0.08em; 
+  text-transform: uppercase;
+  padding: 0.4rem 0.8rem; 
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.announce-text { 
+  font-size: 0.9rem; 
+  color: var(--text-secondary); 
+  font-weight: 500;
+}
+
+.announce-text strong { 
+  color: var(--primary-navy); 
+  font-weight: 700; 
+}
+
+/* Wave Divider */
+.wave-divider { 
+  width: 100%; 
+  line-height: 0; 
+  overflow: hidden; 
+}
+
+.wave-divider svg { 
+  width: 100%; 
+  height: 120px; 
+  display: block; 
+}
+
+/* Stats Bar */
+.stats-bar { 
+  padding: 6rem 5%; 
+  background: linear-gradient(135deg, var(--primary-navy) 0%, var(--navy-light) 100%);
+  color: white; 
+  position: relative;
+}
+
+.stats-bar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.05;
+  background-image: 
+    repeating-linear-gradient(90deg, transparent, transparent 50px, rgba(255,255,255,0.1) 50px, rgba(255,255,255,0.1) 100px);
+}
+
+.stats-inner { 
+  max-width: 1400px; 
+  margin: 0 auto; 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+  gap: 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.stat { 
+  text-align: center; 
+  position: relative; 
+}
+
+.stat-number { 
+  font-family: 'Cormorant Garamond', serif; 
+  font-size: 3.5rem; 
+  font-weight: 600; 
+  color: var(--accent-gold); 
+  line-height: 1; 
+  margin-bottom: 0.7rem; 
+}
+
+.stat-label { 
+  font-size: 0.75rem; 
+  color: rgba(255, 255, 255, 0.65); 
+  letter-spacing: 0.08em; 
+  text-transform: uppercase; 
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+/* Sections */
+.section { 
+  padding: 8rem 5%; 
+}
+
+.section-white { 
+  background: var(--white); 
+}
+
+.section-ice { 
+  background: linear-gradient(to bottom, var(--ice-pale), var(--white)); 
+}
+
+.section-navy { 
+  background: linear-gradient(135deg, var(--primary-navy) 0%, var(--navy-light) 100%); 
+  color: white; 
+}
+
+.section-label {
+  font-size: 0.7rem; 
+  font-weight: 700; 
+  letter-spacing: 0.15em;
+  text-transform: uppercase; 
+  color: var(--clinical-blue); 
+  margin-bottom: 1.5rem;
+  display: flex; 
+  align-items: center; 
+  gap: 0.7rem;
+}
+
+.section-label::before { 
+  content: ''; 
+  width: 24px; 
+  height: 2px; 
+  background: var(--clinical-blue); 
+}
+
+.section-navy .section-label { 
+  color: var(--accent-gold); 
+}
+
+.section-navy .section-label::before { 
+  background: var(--accent-gold); 
+}
+
+/* Intro Grid */
+.intro-grid { 
+  max-width: 1400px; 
+  margin: 0 auto; 
+  display: grid; 
+  grid-template-columns: 1fr 1.2fr; 
+  gap: 6rem; 
+  align-items: center; 
+}
+
+.intro-image {
+  width: 100%; 
+  aspect-ratio: 4/5;
+  border-radius: 24px;
+  background: linear-gradient(135deg, var(--ice-light) 0%, var(--ice-pale) 100%);
+  position: relative; 
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(15, 28, 71, 0.12);
+}
+
+.intro-image::after { 
+  content: ''; 
+  position: absolute; 
+  inset: 12px; 
+  border-radius: 20px; 
+  border: 1px solid rgba(255, 255, 255, 0.5); 
+}
+
+.intro-accent { 
+  position: absolute; 
+  bottom: -30px; 
+  right: -30px; 
+  width: 140px; 
+  height: 140px; 
+  border-radius: 50%; 
+  border: 2px solid var(--accent-gold); 
+  opacity: 0.3;
+  animation: float 12s ease-in-out infinite; 
+}
+
+.intro-text h2 { 
+  color: var(--primary-navy); 
+}
+
+.intro-text p { 
+  margin-bottom: 1.5rem; 
+  font-size: 1.05rem;
+}
+
+.intro-values { 
+  display: flex; 
+  gap: 2rem; 
+  margin-top: 2.5rem; 
+  flex-wrap: wrap; 
+}
+
+.intro-value { 
+  display: flex; 
+  align-items: center; 
+  gap: 0.6rem; 
+  font-size: 0.85rem; 
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.intro-value-dot { 
+  width: 8px; 
+  height: 8px; 
+  border-radius: 50%; 
+  background: var(--clinical-blue); 
+  flex-shrink: 0; 
+}
+
+/* Pathway Section */
+.pathway-header { 
+  max-width: 700px; 
+  margin: 0 auto 5rem; 
+  text-align: center; 
+}
+
+.pathway-header h2 { 
+  color: var(--primary-navy); 
+}
+
+.pathway-header p { 
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+}
+
+.pathway-steps { 
+  max-width: 1400px; 
+  margin: 0 auto; 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+  gap: 2.5rem; 
+}
+
+.pathway-card {
+  background: var(--white); 
+  border: 1px solid var(--border-light);
+  border-radius: 16px; 
+  padding: 3rem 2.5rem; 
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative; 
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(15, 28, 71, 0.05);
+}
+
+.pathway-card::before { 
+  content: ''; 
+  position: absolute; 
+  top: -40%; 
+  right: -10%; 
+  width: 180px; 
+  height: 180px; 
+  border-radius: 50%; 
+  background: var(--ice-pale); 
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); 
+}
+
+.pathway-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--clinical-blue), var(--accent-gold));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.pathway-card:hover { 
+  border-color: var(--border-soft); 
+  transform: translateY(-8px); 
+  box-shadow: 0 20px 50px rgba(30, 77, 122, 0.12); 
+}
+
+.pathway-card:hover::before { 
+  transform: translate(-10%, 10%) scale(1.3); 
+}
+
+.pathway-card:hover::after {
+  transform: scaleX(1);
+}
+
+.pathway-number { 
+  font-family: 'Cormorant Garamond', serif; 
+  font-size: 4rem; 
+  font-weight: 600;
+  color: var(--ice-light); 
+  line-height: 1; 
+  margin-bottom: 1rem; 
+  position: relative; 
+  z-index: 1; 
+}
+
+.pathway-card h3 { 
+  color: var(--primary-navy); 
+  position: relative; 
+  z-index: 1; 
+  margin-bottom: 1rem;
+}
+
+.pathway-card p { 
+  color: var(--text-secondary); 
+  font-size: 0.95rem; 
+  line-height: 1.75; 
+  position: relative; 
+  z-index: 1; 
+}
+
+.pathway-tag { 
+  display: inline-block; 
+  margin-top: 1.5rem; 
+  padding: 0.5rem 1rem; 
+  background: var(--ice-pale); 
+  border: 1px solid var(--border-light); 
+  border-radius: 8px; 
+  font-size: 0.65rem; 
+  letter-spacing: 0.1em; 
+  text-transform: uppercase; 
+  color: var(--slate-light); 
+  position: relative; 
+  z-index: 1; 
+  font-weight: 600;
+}
+
+/* Featured Section */
+.featured { 
+  max-width: 1400px; 
+  margin: 0 auto; 
+  display: grid; 
+  grid-template-columns: 1.3fr 1fr; 
+  gap: 5rem; 
+  align-items: center; 
+}
+
+.featured-image { 
+  border-radius: 16px; 
+  overflow: hidden; 
+  aspect-ratio: 16/10; 
+  background: linear-gradient(135deg, var(--ice-light) 0%, var(--ice-pale) 100%); 
+  position: relative; 
+  box-shadow: 0 20px 60px rgba(15, 28, 71, 0.12);
+}
+
+.featured-badge { 
+  position: absolute; 
+  top: 2rem; 
+  left: 2rem; 
+  background: var(--clinical-blue); 
+  color: white; 
+  font-size: 0.6rem; 
+  font-weight: 700; 
+  letter-spacing: 0.08em; 
+  text-transform: uppercase; 
+  padding: 0.5rem 1rem; 
+  border-radius: 8px; 
+}
+
+.featured-details h2 { 
+  color: var(--primary-navy); 
+}
+
+.featured-meta { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 1.2rem; 
+  margin-bottom: 2.5rem; 
+}
+
+.featured-meta-item { 
+  display: flex; 
+  align-items: flex-start; 
+  gap: 1rem; 
+}
+
+.featured-meta-icon { 
+  width: 44px; 
+  height: 44px; 
+  border-radius: 8px; 
+  background: var(--ice-pale); 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  flex-shrink: 0; 
+  border: 1px solid var(--border-light);
+}
+
+.featured-meta-icon svg { 
+  width: 20px; 
+  height: 20px; 
+  stroke: var(--clinical-blue); 
+  fill: none; 
+  stroke-width: 1.5; 
+}
+
+.featured-meta-text { 
+  font-size: 0.95rem; 
+  color: var(--text-secondary); 
+  line-height: 1.6;
+}
+
+.featured-meta-text strong { 
+  color: var(--primary-navy); 
+  font-weight: 700; 
+}
+
+.featured-price { 
+  display: flex; 
+  align-items: center;
+  gap: 0.8rem; 
+  margin-bottom: 2.5rem; 
+  padding: 1.5rem 2rem; 
+  background: var(--ice-pale); 
+  border: 2px solid var(--border-light); 
+  border-radius: 12px; 
+}
+
+.featured-price-amount { 
+  font-family: 'Cormorant Garamond', serif; 
+  font-size: 2.5rem; 
+  font-weight: 700; 
+  color: var(--primary-navy); 
+}
+
+.featured-price-note { 
+  font-size: 0.8rem; 
+  color: var(--text-light); 
+  line-height: 1.5;
+}
+
+/* Testimonials */
+.testimonials-grid { 
+  max-width: 1400px; 
+  margin: 0 auto; 
+}
+
+.testimonials-header { 
+  margin-bottom: 4rem; 
+}
+
+.testimonials-header h2 { 
+  color: white;
+  font-weight: 600;
+}
+
+.testimonial-cards { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+  gap: 2.5rem; 
+}
+
+.testimonial-card { 
+  background: rgba(255, 255, 255, 0.08); 
+  border: 1px solid rgba(255, 255, 255, 0.12); 
+  border-radius: 16px; 
+  padding: 2.5rem; 
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
+  backdrop-filter: blur(10px);
+}
+
+.testimonial-card:hover { 
+  background: rgba(255, 255, 255, 0.12); 
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15); 
+}
+
+.testimonial-stars { 
+  display: flex; 
+  gap: 3px; 
+  margin-bottom: 1.5rem; 
+}
+
+.testimonial-star { 
+  width: 15px; 
+  height: 15px; 
+  fill: var(--accent-gold); 
+}
+
+.testimonial-text { 
+  font-family: 'Cormorant Garamond', serif; 
+  font-size: 1.15rem; 
+  font-weight: 400; 
+  font-style: italic; 
+  line-height: 1.7; 
+  color: rgba(255, 255, 255, 0.9); 
+  margin-bottom: 2rem; 
+}
+
+.testimonial-author { 
+  display: flex; 
+  align-items: center; 
+  gap: 1rem; 
+}
+
+.testimonial-avatar { 
+  width: 44px; 
+  height: 44px; 
+  border-radius: 50%; 
+  background: rgba(255, 255, 255, 0.12); 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  font-family: 'Outfit', sans-serif; 
+  font-size: 0.9rem; 
+  font-weight: 600; 
+  color: var(--accent-gold); 
+  flex-shrink: 0;
+}
+
+.testimonial-author-info h4 { 
+  font-family: 'Outfit', sans-serif; 
+  font-size: 0.9rem; 
+  font-weight: 600; 
+  color: white; 
+  margin-bottom: 0.2rem;
+}
+
+.testimonial-author-info span { 
+  font-size: 0.75rem; 
+  color: rgba(255, 255, 255, 0.5); 
+  font-weight: 500;
+}
+
+/* Pillars Section */
+.pillars-header { 
+  max-width: 600px; 
+  margin-bottom: 5rem; 
+}
+
+.pillars-header h2 { 
+  color: var(--primary-navy); 
+}
+
+.pillars-header p { 
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+}
+
+.pillars-grid { 
+  max-width: 1400px; 
+  margin: 0 auto; 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+  gap: 2.5rem; 
+}
+
+.pillar-card { 
+  background: var(--white); 
+  border: 1px solid var(--border-light); 
+  border-radius: 16px; 
+  padding: 3rem 2.5rem; 
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
+  box-shadow: 0 4px 15px rgba(15, 28, 71, 0.05);
+}
+
+.pillar-card:hover { 
+  transform: translateY(-8px);
+  border-color: var(--clinical-blue);
+  box-shadow: 0 20px 50px rgba(30, 77, 122, 0.12); 
+}
+
+.pillar-icon { 
+  width: 56px; 
+  height: 56px; 
+  border-radius: 12px; 
+  background: var(--ice-pale); 
+  border: 1px solid var(--border-light); 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.pillar-card:hover .pillar-icon {
+  background: var(--clinical-blue);
+  border-color: var(--clinical-blue);
+}
+
+.pillar-icon svg { 
+  width: 24px; 
+  height: 24px; 
+  stroke: var(--clinical-blue); 
+  fill: none; 
+  stroke-width: 1.5; 
+  transition: stroke 0.3s ease;
+}
+
+.pillar-card:hover .pillar-icon svg {
+  stroke: white;
+}
+
+.pillar-card h3 { 
+  color: var(--primary-navy); 
+  margin-bottom: 1rem;
+}
+
+.pillar-card p { 
+  font-size: 0.95rem; 
+  color: var(--text-secondary); 
+  line-height: 1.75; 
+}
+
+/* CTA Section */
+.cta-section { 
+  padding: 8rem 5%; 
+  text-align: center; 
+  position: relative; 
+  overflow: hidden; 
+  background: linear-gradient(135deg, var(--ice-pale) 0%, var(--white) 100%);
+}
+
+.cta-circles { 
+  position: absolute; 
+  inset: 0; 
+}
+
+.cta-circles div { 
+  position: absolute; 
+  border-radius: 50%; 
+  border: 1px solid var(--border-light); 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  opacity: 0.3; 
+}
+
+.cta-circles div:nth-child(1) { 
+  width: 300px; 
+  height: 300px; 
+}
+
+.cta-circles div:nth-child(2) { 
+  width: 500px; 
+  height: 500px; 
+}
+
+.cta-circles div:nth-child(3) { 
+  width: 700px; 
+  height: 700px; 
+}
+
+.cta-inner { 
+  position: relative; 
+  z-index: 1; 
+  max-width: 650px; 
+  margin: 0 auto; 
+}
+
+.cta-inner h2 { 
+  color: var(--primary-navy); 
+  font-weight: 600;
+}
+
+.cta-inner p { 
+  color: var(--text-secondary); 
+  margin-bottom: 3rem; 
+  font-size: 1.05rem; 
+}
+
+.cta-actions {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Acknowledgement */
+.acknowledgement { 
+  padding: 4rem 5%; 
+  text-align: center; 
+  border-top: 1px solid var(--border-light); 
+  background: var(--white); 
+}
+
+.acknowledgement p { 
+  max-width: 800px; 
+  margin: 0 auto; 
+  font-size: 0.9rem; 
+  font-style: italic; 
+  color: var(--text-light); 
+  line-height: 1.8; 
+  font-family: 'Cormorant Garamond', serif; 
+  font-weight: 400; 
+}
+
+/* Footer */
+footer { 
+  padding: 6rem 5% 3rem; 
+  background: linear-gradient(135deg, var(--navy-dark) 0%, var(--primary-navy) 100%); 
+  color: white; 
+}
+
+.footer-inner { 
+  max-width: 1400px; 
+  margin: 0 auto; 
+  display: grid; 
+  grid-template-columns: 1.8fr 1fr 1fr 1fr; 
+  gap: 5rem; 
+  margin-bottom: 4rem; 
+}
+
+.footer-logo-img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 1.2rem;
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
+}
+
+.footer-brand:hover .footer-logo-img {
+  opacity: 1;
+}
+
+.footer-brand-name { 
+  font-family: 'Cormorant Garamond', serif; 
+  font-size: 1.35rem; 
+  font-weight: 500; 
+  color: white; 
+  margin-bottom: 1rem; 
+  letter-spacing: -0.01em;
+}
+
+.footer-brand p { 
+  color: rgba(255, 255, 255, 0.55); 
+  font-size: 0.9rem; 
+  max-width: 280px; 
+  line-height: 1.8; 
+}
+
+.footer-col h5 { 
+  font-family: 'Outfit', sans-serif; 
+  font-size: 0.7rem; 
+  font-weight: 700; 
+  letter-spacing: 0.15em; 
+  text-transform: uppercase; 
+  color: rgba(255, 255, 255, 0.4); 
+  margin-bottom: 1.5rem; 
+}
+
+.footer-col a { 
+  display: block; 
+  font-size: 0.9rem; 
+  color: rgba(255, 255, 255, 0.65); 
+  text-decoration: none; 
+  margin-bottom: 0.8rem; 
+  transition: all 0.3s ease;
+  font-weight: 400;
+}
+
+.footer-col a:hover { 
+  color: white; 
+  transform: translateX(4px);
+}
+
+.footer-bottom { 
+  max-width: 1400px; 
+  margin: 0 auto; 
+  padding-top: 2.5rem; 
+  border-top: 1px solid rgba(255, 255, 255, 0.1); 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  gap: 2rem;
+}
+
+.footer-bottom p { 
+  font-size: 0.8rem; 
+  color: rgba(255, 255, 255, 0.35); 
+  font-weight: 400;
+}
+
+.footer-location { 
+  display: flex; 
+  align-items: center; 
+  gap: 0.5rem; 
+  font-size: 0.8rem; 
+  color: rgba(255, 255, 255, 0.35);
+  font-weight: 400;
+}
+
+.footer-location svg { 
+  width: 14px; 
+  height: 14px; 
+  stroke: currentColor; 
+  fill: none; 
+  stroke-width: 1.5; 
+}
+
+/* Reveal Animation */
+.reveal { 
+  opacity: 0; 
+  transform: translateY(50px); 
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); 
+}
+
+.reveal.visible { 
+  opacity: 1; 
+  transform: translateY(0); 
+}
+
+/* Focus States for Accessibility */
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--clinical-blue);
+  outline-offset: 3px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .section { 
+    padding: 6rem 5%; 
+  }
+  
+  nav { 
+    padding: 1rem 5%; 
+  }
+  
+  nav.scrolled { 
+    padding: 0.8rem 5%; 
+  }
+  
+  .intro-grid, .featured { 
+    grid-template-columns: 1fr; 
+    gap: 3.5rem; 
+  }
+  
+  .stats-inner { 
+    grid-template-columns: repeat(2, 1fr); 
+  }
+  
+  .footer-inner { 
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links { 
+    display: none; 
+  }
+  
+  .pathway-steps, .testimonial-cards, .pillars-grid { 
+    grid-template-columns: 1fr; 
+  }
+  
+  .stats-inner { 
+    grid-template-columns: 1fr; 
+    gap: 2.5rem; 
+  }
+  
+  .hero h1 { 
+    font-size: 2.2rem; 
+  }
+  
+  .hero-actions { 
+    flex-direction: column; 
+    align-items: stretch;
+  }
+  
+  .hero-actions .btn {
+    width: 100%;
+  }
+  
+  .footer-inner { 
+    grid-template-columns: 1fr; 
+    gap: 2.5rem; 
+  }
+  
+  .footer-bottom { 
+    flex-direction: column; 
+    gap: 1rem; 
+  }
+  
+  .section, .cta-section { 
+    padding: 5rem 5%; 
+  }
+  
+  .stats-bar { 
+    padding: 4rem 5%; 
+  }
+  
+  .pathway-header, .pillars-header {
+    margin-bottom: 3rem;
+  }
+  
+  .intro-values {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section, .cta-section { 
+    padding: 4rem 4%; 
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  .hero-logo {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .announce {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  
+  .btn {
+    padding: 0.8rem 1.8rem;
+    font-size: 0.8rem;
+  }
+  
+  .nav-logo-text {
+    font-size: 0.95rem;
+  }
+  
+  .featured-price {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .cta-actions {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .cta-actions .btn {
+    width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+<nav id="nav">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-icon"><img src="pia-logo.png" alt="PIA Logo"></div>
+    <span class="nav-logo-text">PIA</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#training">Training</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#approach">Approach</a></li>
+    <li><a href="#testimonials">Stories</a></li>
+    <li><a href="#contact" class="nav-cta">Apply Now</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg-circles">
+    <div class="hero-bg-circle"></div>
+    <div class="hero-bg-circle"></div>
+    <div class="hero-bg-circle"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-logo-wrap">
+      <img src="pia-logo.png" alt="PIA" class="hero-logo">
+    </div>
+    <p class="hero-label">Gold Standard in Psychedelic Therapy Training</p>
+    <h1>Training the next generation of <em>psychedelic therapists</em></h1>
+    <p class="hero-desc">Evidence-based training trusted by clinical researchers and leading therapists. Equip yourself to deliver safe, effective psychedelic-assisted therapy with confidence.</p>
+    <div class="hero-actions">
+      <a href="#training" class="btn btn-navy">Explore Training</a>
+      <a href="#about" class="btn btn-outline">Learn About PIA</a>
+    </div>
+    <div class="announce">
+      <span class="announce-badge">Next Cohort</span>
+      <span class="announce-text"><strong>July 20–24, 2026</strong> — Byron Bay, NSW</span>
+    </div>
+  </div>
+</section>
+
+<div class="wave-divider">
+  <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+    <path d="M0,60 C360,100 720,20 1080,60 C1260,80 1380,70 1440,60 L1440,100 L0,100 Z" fill="#0f2847"/>
+  </svg>
+</div>
+
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat reveal">
+      <div class="stat-number">67–71%</div>
+      <div class="stat-label">PTSD Remission with MDMA Therapy</div>
+    </div>
+    <div class="stat reveal">
+      <div class="stat-number">5</div>
+      <div class="stat-label">Day Intensive Training</div>
+    </div>
+    <div class="stat reveal">
+      <div class="stat-number">1st</div>
+      <div class="stat-label">Country to Reschedule Psychedelics</div>
+    </div>
+    <div class="stat reveal">
+      <div class="stat-number">6+</div>
+      <div class="stat-label">Expert Clinicians & Researchers</div>
+    </div>
+  </div>
+</div>
+
+<div class="wave-divider" style="background: var(--white);">
+  <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+    <path d="M0,40 C360,0 720,80 1080,40 C1260,20 1380,30 1440,40 L1440,100 L0,100 Z" fill="#ffffff"/>
+  </svg>
+</div>
+
+<section class="section section-white" id="about">
+  <div class="intro-grid">
+    <div class="intro-visual reveal" style="position:relative;">
+      <div class="intro-image"></div>
+      <div class="intro-accent"></div>
+    </div>
+    <div class="intro-text reveal">
+      <p class="section-label">About PIA</p>
+      <h2>A values-driven organisation at the forefront of psychedelic therapy</h2>
+      <p>Psychedelic Institute Australia offers the highest quality psychedelic therapy training and education to therapists and clinicians across Australia. We are led by published researchers and clinicians with direct experience in psychedelic clinical trials.</p>
+      <p>Our mission is to ensure the safe, ethical, and effective integration of psychedelic-assisted therapy into Australian healthcare — grounded in evidence, guided by integrity.</p>
+      <div class="intro-values">
+        <span class="intro-value"><span class="intro-value-dot"></span>Evidence-Based</span>
+        <span class="intro-value"><span class="intro-value-dot"></span>Clinician-Led</span>
+        <span class="intro-value"><span class="intro-value-dot"></span>Ethics-First</span>
+        <span class="intro-value"><span class="intro-value-dot"></span>Trial-Trusted</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-ice" id="training">
+  <div class="pathway-header reveal">
+    <p class="section-label" style="justify-content:center;">Your Training Pathway</p>
+    <h2>From foundational knowledge to clinical practice</h2>
+    <p>Our structured pathway takes you from understanding psychedelic therapy to delivering it with confidence in real-world settings.</p>
+  </div>
+  <div class="pathway-steps">
+    <div class="pathway-card reveal">
+      <div class="pathway-number">01</div>
+      <h3>Foundational Knowledge</h3>
+      <p>Begin with our online course developed with Psychedelics Today. Build your understanding of psychedelic pharmacology, history, therapeutic frameworks, and the Australian regulatory landscape.</p>
+      <span class="pathway-tag">Online · Self-Paced</span>
+    </div>
+    <div class="pathway-card reveal">
+      <div class="pathway-number">02</div>
+      <h3>Clinical Skills Intensive</h3>
+      <p>A 5-day immersive training in Byron Bay. Learn psilocybin and MDMA-assisted protocols, screening, safety management, and integration techniques from Australia's leading clinicians.</p>
+      <span class="pathway-tag">In-Person · Byron Bay</span>
+    </div>
+    <div class="pathway-card reveal">
+      <div class="pathway-number">03</div>
+      <h3>Research Team Training</h3>
+      <p>Specialised training for universities, CROs, and clinical trial teams. We prepare therapist teams to deliver psychedelic-assisted therapy within research protocols to the highest standards.</p>
+      <span class="pathway-tag">Customised · Teams</span>
+    </div>
+    <div class="pathway-card reveal">
+      <div class="pathway-number">04</div>
+      <h3>Consultancy & Support</h3>
+      <p>Ongoing guidance for individuals, organisations, and businesses exploring psychedelic therapy — from regulatory navigation to clinical implementation and practice development.</p>
+      <span class="pathway-tag">Ongoing · Flexible</span>
+    </div>
+  </div>
+</section>
+
+<section class="section section-white">
+  <div class="featured reveal">
+    <div class="featured-image">
+      <div class="featured-badge">Applications Open</div>
+    </div>
+    <div class="featured-details">
+      <p class="section-label">Next Training</p>
+      <h2>Byron Bay Clinical Skills Intensive</h2>
+      <div class="featured-meta">
+        <div class="featured-meta-item">
+          <div class="featured-meta-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <span class="featured-meta-text"><strong>July 20–24, 2026</strong> — 5 days</span>
+        </div>
+        <div class="featured-meta-item">
+          <div class="featured-meta-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <span class="featured-meta-text"><strong>Byron Bay Community Centre</strong>, NSW</span>
+        </div>
+        <div class="featured-meta-item">
+          <div class="featured-meta-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <span class="featured-meta-text">Led by <strong>Renee Harvey, Stephen Bright, Petra Skeffington, Diego Pinzon</strong></span>
+        </div>
+      </div>
+      <div class="featured-price">
+        <span class="featured-price-amount">$4,295</span>
+        <span class="featured-price-note">AUD early bird (before April 1) · Full price $4,695</span>
+      </div>
+      <a href="#" class="btn btn-navy">Apply Now</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-navy" id="testimonials">
+  <div class="testimonials-grid">
+    <div class="testimonials-header reveal">
+      <p class="section-label">Graduate Stories</p>
+      <h2>Hear from professionals who've attended our training</h2>
+    </div>
+    <div class="testimonial-cards">
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">
+          <svg class="testimonial-star" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+          <svg class="testimonial-star" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+          <svg class="testimonial-star" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+          <svg class="testimonial-star" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+          <svg class="testimonial-star" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+        </div>
+        <p class="testimonial-text">"Loved the relaxed learning style that allowed participants of various expertise to enrich the experience. It was rich, supportive, and the trainer-to-trainee ratio was wonderful."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">SC</div>
+          <div class="testimonial-author-info">
+            <h4>Sue Coonan</h4>
+            <span>Clinical Psychologist</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">
+          <svg class="testimonial-star" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+          <svg class="testimonial-star" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+          <svg class="testimonial-star" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+          <svg class="testimonial-star" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+          <svg class="testimonial-star" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+        </div>
+        <p class="testimonial-text">"What I appreciated the most was the continuous reference to evidence-based research, highlighting both efficacy and limitations in the field."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">MM</div>
+          <div class="testimonial-author-info">
+            <h4>Mark Mergalla</h4>
+            <span>Mental Health Accredited Social Worker</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">
+          <svg class="testimonial-star" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+          <svg class="testimonial-star" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+          <svg class="testimonial-star" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+          <svg class="testimonial-star" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+          <svg class="testimonial-star" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+        </div>
+        <p class="testimonial-text">"All facilitators were welcoming and down-to-earth. This course confirmed that psychedelic therapy is the career path I want to pursue."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">CJ</div>
+          <div class="testimonial-author-info">
+            <h4>Coreena Jackson</h4>
+            <span>Psychologist</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-white" id="approach">
+  <div style="max-width:1400px;margin:0 auto;">
+    <div class="pillars-header reveal">
+      <p class="section-label">Our Approach</p>
+      <h2>Evidence-based, experiential, and deeply human</h2>
+      <p>We bridge rigorous science with the relational, embodied nature of psychedelic therapy.</p>
+    </div>
+    <div class="pillars-grid">
+      <div class="pillar-card reveal">
+        <div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg></div>
+        <h3>Research-Grounded</h3>
+        <p>Built on clinical trial evidence, published research, and validated protocols including the MAPS manual for MDMA-assisted psychotherapy.</p>
+      </div>
+      <div class="pillar-card reveal">
+        <div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>Safety & Ethics First</h3>
+        <p>Every aspect prioritises participant safety, informed consent, cultural sensitivity, and the ethical responsibilities of consciousness-expanding work.</p>
+      </div>
+      <div class="pillar-card reveal">
+        <div class="pillar-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Experiential Learning</h3>
+        <p>Intimate groups in Byron Bay foster deep relational learning with a high trainer-to-participant ratio and direct mentorship from expert clinicians.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" id="contact">
+  <div class="cta-circles"><div></div><div></div><div></div></div>
+  <div class="cta-inner reveal">
+    <p class="section-label" style="justify-content:center;">Begin Your Journey</p>
+    <h2>Ready to shape the future of psychedelic therapy?</h2>
+    <p>Applications are now open for our July 2026 Byron Bay Clinical Skills Intensive. Places are limited to ensure quality mentorship.</p>
+    <div class="cta-actions">
+      <a href="#" class="btn btn-navy">Apply Now</a>
+      <a href="#" class="btn btn-outline">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+<div class="acknowledgement">
+  <p>PIA acknowledges the many traditional owners and custodians of these lands, past, present and emerging. We respect the traditional owners and their care of country and culture. We, the people of PIA live on the Wurundjeri Woi Wurrung and Bunurong/Boon Wurrung peoples Kulin Nation, Whadjuk peoples Noongar Nation, and the Arakwal Bumberlin people Bundjalung Nation. We honour and appreciate the life and love these lands have given us, and all Aboriginal and Torres Strait Islander Peoples and Countries within this place we call Australia.</p>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="pia-logo.png" alt="PIA" class="footer-logo-img">
+      <div class="footer-brand-name">Psychedelic Institute Australia</div>
+      <p>The gold standard in psychedelic therapy training and education for Australian therapists and clinicians.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Training</h5>
+      <a href="#">Byron Bay Intensive</a>
+      <a href="#">Online Course</a>
+      <a href="#">Research Teams</a>
+      <a href="#">Education</a>
+    </div>
+    <div class="footer-col">
+      <h5>About</h5>
+      <a href="#">About PIA</a>
+      <a href="#">Our Team</a>
+      <a href="#">Partnerships</a>
+      <a href="#">FAQ</a>
+    </div>
+    <div class="footer-col">
+      <h5>Resources</h5>
+      <a href="#">Training Info</a>
+      <a href="#">Resources</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Psychedelic Institute Australia. All rights reserved.</p>
+    <span class="footer-location"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Melbourne · Byron Bay</span>
+  </div>
+</footer>
+
+<script>
+// Navigation scroll effect
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 80);
+});
+
+// Intersection Observer for reveal animations
+const revealElements = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry, index) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.add('visible');
+      }, index * 80);
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+revealElements.forEach(el => revealObserver.observe(el));
+</script>
+</body>
+</html>
