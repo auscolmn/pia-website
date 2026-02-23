@@ -44,7 +44,6 @@ nav {
   padding: 1.5rem 4rem;
   display: flex; justify-content: space-between; align-items: center;
   transition: all 0.5s ease;
-  background: white;
 }
 nav.scrolled {
   padding: 1rem 4rem;
@@ -52,13 +51,7 @@ nav.scrolled {
   backdrop-filter: blur(25px);
   border-bottom: 1px solid var(--border-light);
 }
-.nav-logo { 
-  display: flex; 
-  align-items: center; 
-  gap: 0.7rem; 
-  text-decoration: none;
-  flex: 1;
-}
+.nav-logo { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; }
 .nav-logo-icon {
   width: 40px; height: 40px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
@@ -84,82 +77,6 @@ nav.scrolled {
 .nav-cta:hover {
   background: var(--navy) !important; transform: translateY(-1px);
   box-shadow: 0 8px 30px rgba(30,58,79,0.2);
-}
-
-/* Mobile Menu Toggle */
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem;
-}
-.menu-toggle span {
-  width: 24px;
-  height: 2px;
-  background: var(--text-dark);
-  transition: all 0.3s ease;
-  border-radius: 1px;
-}
-.menu-toggle.active span:nth-child(1) {
-  transform: rotate(45deg) translate(10px, 10px);
-}
-.menu-toggle.active span:nth-child(2) {
-  opacity: 0;
-}
-.menu-toggle.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -7px);
-}
-
-/* Mobile Navigation Menu */
-.nav-menu-mobile {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background: rgba(255,255,255,0.98);
-  backdrop-filter: blur(25px);
-  border-bottom: 1px solid var(--border-light);
-  flex-direction: column;
-  gap: 0;
-  padding: 1.5rem 2rem;
-  max-height: calc(100vh - 80px);
-  overflow-y: auto;
-  animation: slideDown 0.3s ease;
-}
-.nav-menu-mobile.active {
-  display: flex;
-}
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.nav-menu-mobile a {
-  padding: 1rem 0;
-  font-size: 0.78rem;
-  font-weight: 400;
-  color: var(--text-mid);
-  text-decoration: none;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  border-bottom: 1px solid var(--border-light);
-  transition: color 0.3s;
-}
-.nav-menu-mobile a:hover {
-  color: var(--navy);
-}
-.nav-menu-mobile .nav-cta {
-  border: none !important;
-  margin-top: 0.5rem;
 }
 
 .hero {
@@ -381,14 +298,7 @@ footer { padding: 5rem 4rem 2rem; background: var(--navy-dark); color: white; }
   .footer-inner { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 768px) {
-  nav { padding: 1rem 1.5rem; }
-  nav.scrolled { padding: 0.8rem 1.5rem; }
-  
   .nav-links { display: none; }
-  .menu-toggle { display: flex; }
-  .nav-logo-text { display: none; }
-  .nav-logo-icon { width: 32px; height: 32px; }
-  
   .pathway-steps, .testimonial-cards, .pillars-grid { grid-template-columns: 1fr; }
   .stats-inner { grid-template-columns: 1fr; gap: 2rem; }
   .hero h1 { font-size: 2.4rem; } .hero-actions { flex-direction: column; }
@@ -412,18 +322,6 @@ footer { padding: 5rem 4rem 2rem; background: var(--navy-dark); color: white; }
     <li><a href="#testimonials">Stories</a></li>
     <li><a href="#contact" class="nav-cta">Apply Now</a></li>
   </ul>
-  <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
-  <div class="nav-menu-mobile" id="navMenuMobile">
-    <a href="#training">Training</a>
-    <a href="#about">About</a>
-    <a href="#approach">Approach</a>
-    <a href="#testimonials">Stories</a>
-    <a href="#contact" class="nav-cta">Apply Now</a>
-  </div>
 </nav>
 
 <section class="hero">
@@ -588,36 +486,7 @@ footer { padding: 5rem 4rem 2rem; background: var(--navy-dark); color: white; }
 </footer>
 
 <script>
-// Scroll navigation styling
 window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>80);});
-
-// Mobile menu toggle
-const menuToggle = document.getElementById('menuToggle');
-const navMenuMobile = document.getElementById('navMenuMobile');
-
-menuToggle.addEventListener('click', () => {
-  menuToggle.classList.toggle('active');
-  navMenuMobile.classList.toggle('active');
-});
-
-// Close mobile menu when a link is clicked
-const navLinks = navMenuMobile.querySelectorAll('a');
-navLinks.forEach(link => {
-  link.addEventListener('click', () => {
-    menuToggle.classList.remove('active');
-    navMenuMobile.classList.remove('active');
-  });
-});
-
-// Close mobile menu when clicking outside
-document.addEventListener('click', (e) => {
-  if (!e.target.closest('nav')) {
-    menuToggle.classList.remove('active');
-    navMenuMobile.classList.remove('active');
-  }
-});
-
-// Reveal animation on scroll
 const revealEls=document.querySelectorAll('.reveal');
 const observer=new IntersectionObserver((entries)=>{entries.forEach((entry,i)=>{if(entry.isIntersecting){setTimeout(()=>entry.target.classList.add('visible'),i*80);observer.unobserve(entry.target);}});},{threshold:0.12});
 revealEls.forEach(el=>observer.observe(el));
