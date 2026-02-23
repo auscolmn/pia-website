@@ -132,10 +132,82 @@ nav.scrolled {
   transform: rotate(180deg);
 }
 
+/* Mobile Menu Toggle */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+.menu-toggle span {
+  width: 24px;
+  height: 2px;
+  background: var(--navy-deep);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(10px, 10px);
+}
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
 @media (max-width: 768px) {
   nav { padding: 1rem 2rem; }
-  .nav-links { display: none; }
-  .nav-cta { display: none; }
+  .menu-toggle { display: flex; }
+  .nav-links { 
+    display: none;
+    position: absolute; top: 70px; left: 0; right: 0;
+    background: white;
+    flex-direction: column;
+    gap: 0;
+    list-style: none;
+    border-bottom: 1px solid var(--border-light);
+    z-index: 999;
+  }
+  .nav-links.active { display: flex; }
+  .nav-item {
+    border-bottom: 1px solid var(--border-light);
+  }
+  .nav-item > a {
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .nav-dropdown {
+    position: static;
+    opacity: 0;
+    visibility: hidden;
+    max-height: 0;
+    overflow: hidden;
+    transform: none;
+    background: var(--ice-pale);
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+    transition: all 0.3s ease;
+  }
+  .nav-item.active .nav-dropdown {
+    opacity: 1;
+    visibility: visible;
+    max-height: 500px;
+    padding: 0.5rem 0;
+  }
+  .nav-dropdown a {
+    padding: 0.8rem 3rem;
+  }
+  .nav-cta { 
+    display: none;
+  }
   .nav-logo-text { display: none; }
 }
 
@@ -298,6 +370,12 @@ footer a { color: var(--gold-accent); text-decoration: none; }
     <div class="nav-logo-icon">🌿</div>
     <span class="nav-logo-text">PIA</span>
   </div>
+  
+  <button class="menu-toggle" aria-label="Toggle menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
   
   <ul class="nav-links">
     <li class="nav-item">
@@ -528,6 +606,38 @@ footer a { color: var(--gold-accent); text-decoration: none; }
 
 <!-- Scripts -->
 <script>
+  // Mobile menu toggle
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  
+  if (menuToggle) {
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+  }
+  
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (menuToggle) {
+        menuToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+      }
+    });
+  });
+  
+  document.querySelectorAll('.nav-item').forEach(item => {
+    const link = item.querySelector('a');
+    if (link && item.querySelector('.nav-dropdown')) {
+      link.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          item.classList.toggle('active');
+        }
+      });
+    }
+  });
+
   // Navigation scroll effect
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
@@ -535,6 +645,38 @@ footer a { color: var(--gold-accent); text-decoration: none; }
       nav.classList.add('scrolled');
     } else {
       nav.classList.remove('scrolled');
+    }
+  });
+
+  // Mobile menu toggle
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  
+  if (menuToggle) {
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+  }
+  
+  // Close menu when clicking a link
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      menuToggle.classList.remove('active');
+      navLinks.classList.remove('active');
+    });
+  });
+
+  // Mobile dropdown toggle
+  document.querySelectorAll('.nav-item').forEach(item => {
+    const link = item.querySelector('a');
+    if (link && item.querySelector('.nav-dropdown')) {
+      link.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          item.classList.toggle('active');
+        }
+      });
     }
   });
 

@@ -127,11 +127,91 @@ nav.scrolled {
 }
 
 .nav-item:hover .nav-dropdown-arrow {
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+.menu-toggle span {
+  width: 24px;
+  height: 2px;
+  background: var(--navy-deep);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(10px, 10px);
+}
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
   transform: rotate(180deg);
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+.menu-toggle span {
+  width: 24px;
+  height: 2px;
+  background: var(--navy-deep);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(10px, 10px);
+}
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+.menu-toggle span {
+  width: 24px;
+  height: 2px;
+  background: var(--navy-deep);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(10px, 10px);
+}
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
 }
 
 @media (max-width: 768px) {
-  nav { padding: 1rem 2rem; }
   .nav-links { display: none; }
   .nav-cta { display: none; }
   .nav-logo-text { display: none; }
@@ -355,8 +435,6 @@ footer { padding: 5rem 4rem 2rem; background: var(--navy-dark); color: white; }
   .stats-inner { grid-template-columns: repeat(2,1fr); } .stat::after { display: none; }
   .footer-inner { grid-template-columns: 1fr 1fr; }
 }
-@media (max-width: 768px) {
-  .nav-links { display: none; }
   .pathway-steps, .testimonial-cards, .pillars-grid { grid-template-columns: 1fr; }
   .stats-inner { grid-template-columns: 1fr; gap: 2rem; }
   .hero h1 { font-size: 2.4rem; } .hero-actions { flex-direction: column; }
@@ -373,6 +451,12 @@ footer { padding: 5rem 4rem 2rem; background: var(--navy-dark); color: white; }
     <div class="nav-logo-icon">🌿</div>
     <span class="nav-logo-text">PIA</span>
   </div>
+  
+  <button class="menu-toggle" aria-label="Toggle menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
   
   <ul class="nav-links">
     <li class="nav-item">
@@ -588,6 +672,38 @@ footer { padding: 5rem 4rem 2rem; background: var(--navy-dark); color: white; }
 </footer>
 
 <script>
+  // Mobile menu toggle
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  
+  if (menuToggle) {
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+  }
+  
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (menuToggle) {
+        menuToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+      }
+    });
+  });
+  
+  document.querySelectorAll('.nav-item').forEach(item => {
+    const link = item.querySelector('a');
+    if (link && item.querySelector('.nav-dropdown')) {
+      link.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          item.classList.toggle('active');
+        }
+      });
+    }
+  });
+
 window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>80);});
 const revealEls=document.querySelectorAll('.reveal');
 const observer=new IntersectionObserver((entries)=>{entries.forEach((entry,i)=>{if(entry.isIntersecting){setTimeout(()=>entry.target.classList.add('visible'),i*80);observer.unobserve(entry.target);}});},{threshold:0.12});
