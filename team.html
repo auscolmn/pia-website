@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Team — Psychedelic Institute Australia | Expert Clinicians & Researchers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --white: #ffffff;
+  --off-white: #f8fafb;
+  --ice: #e8f1f5;
+  --ice-light: #eef5f8;
+  --ice-pale: #f3f8fa;
+  --beige: #d5d3c8;
+  --beige-light: #e8e6dd;
+  --stone: #8a8a80;
+  --slate: #4a6a7a;
+  --navy: #1e3a4f;
+  --navy-deep: #142c3d;
+  --navy-dark: #0f2330;
+  --text-dark: #1a2e3d;
+  --text-mid: #4a5d6a;
+  --text-light: #7a8d98;
+  --gold-accent: #c4a55a;
+  --border-light: #dfe8ed;
+  --border-ice: #d0e2ea;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  color: var(--text-dark);
+  background: var(--white);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5 { font-family: 'Cormorant Garamond', serif; font-weight: 400; }
+
+/* Navigation */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 1.5rem 4rem;
+  display: flex; justify-content: space-between; align-items: center;
+  transition: all 0.5s ease;
+  background: white;
+}
+nav.scrolled {
+  padding: 1rem 4rem;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(25px);
+  border-bottom: 1px solid var(--border-light);
+}
+.nav-logo { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; }
+.nav-logo-icon {
+  width: 40px; height: 40px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+  background: var(--ice-pale);
+}
+.nav-logo-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem; font-weight: 500; color: var(--navy-deep);
+}
+.nav-links { display: flex; gap: 2.2rem; list-style: none; align-items: center; }
+.nav-links a {
+  font-size: 0.78rem; font-weight: 400; color: var(--text-mid);
+  text-decoration: none; letter-spacing: 0.12em; text-transform: uppercase;
+  transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--navy); }
+.nav-cta {
+  padding: 0.6rem 1.6rem !important; background: var(--navy-deep) !important;
+  color: white !important; border-radius: 50px;
+  transition: all 0.4s ease !important;
+}
+.nav-cta:hover {
+  background: var(--navy) !important; transform: translateY(-1px);
+  box-shadow: 0 8px 30px rgba(30,58,79,0.2);
+}
+
+/* Dropdown Menus */
+.nav-item {
+  position: relative;
+}
+
+.nav-item > a {
+  padding: 0.8rem 1rem;
+  display: flex; align-items: center; gap: 0.3rem;
+}
+
+.nav-dropdown {
+  position: absolute; top: 100%; left: 0;
+  background: white; border-radius: 8px;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 8px 24px rgba(30,58,79,0.1);
+  min-width: 220px;
+  opacity: 0; visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  padding: 0.5rem 0;
+  z-index: 1001;
+}
+
+.nav-item:hover .nav-dropdown {
+  opacity: 1; visibility: visible;
+  transform: translateY(0);
+}
+
+.nav-dropdown a {
+  display: block; padding: 0.8rem 1.2rem;
+  color: var(--text-mid); text-decoration: none;
+  font-size: 0.8rem; letter-spacing: 0.08em;
+  text-transform: none; font-weight: 400;
+  transition: all 0.2s;
+}
+
+.nav-dropdown a:hover {
+  background: var(--ice-pale); color: var(--navy-deep);
+  padding-left: 1.5rem;
+}
+
+.nav-dropdown-arrow {
+  font-size: 0.6rem; transition: transform 0.3s;
+}
+
+.nav-item:hover .nav-dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+@media (max-width: 768px) {
+  nav { padding: 1rem 2rem; }
+  .nav-links { display: none; }
+  .nav-cta { display: none; }
+  .nav-logo-text { display: none; }
+}
+
+/* Hero */
+.hero {
+  min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  text-align: center; position: relative; overflow: hidden;
+  background: linear-gradient(180deg, var(--ice-pale) 0%, var(--white) 60%);
+  padding-top: 80px;
+}
+.hero-bg-circles { position: absolute; inset: 0; overflow: hidden; }
+.hero-bg-circle {
+  position: absolute; border-radius: 50%;
+  border: 1px solid var(--border-ice); opacity: 0.4;
+}
+.hero-bg-circle:nth-child(1) { width: 700px; height: 700px; top: -20%; right: -10%; animation: gp 15s ease-in-out infinite; }
+.hero-bg-circle:nth-child(2) { width: 500px; height: 500px; bottom: -15%; left: -8%; animation: gp 15s ease-in-out infinite reverse; }
+.hero-bg-circle:nth-child(3) { width: 300px; height: 300px; top: 20%; left: 15%; border-color: var(--beige-light); animation: gp 12s ease-in-out infinite 3s; }
+@keyframes gp { 0%,100% { transform: scale(1); opacity: 0.3; } 50% { transform: scale(1.05); opacity: 0.5; } }
+
+.hero-content { position: relative; z-index: 2; max-width: 820px; padding: 2rem; }
+.hero-label {
+  font-size: 0.72rem; font-weight: 500; letter-spacing: 0.25em;
+  text-transform: uppercase; color: var(--slate); margin-bottom: 1.5rem;
+  display: flex; align-items: center; justify-content: center; gap: 0.8rem;
+  opacity: 0; animation: fu 1s ease forwards 0.2s;
+}
+.hero-label::before, .hero-label::after { content: ''; width: 25px; height: 1px; background: var(--slate); opacity: 0.4; }
+.hero h1 {
+  font-size: clamp(2.8rem, 6vw, 4.8rem); line-height: 1.1;
+  color: var(--navy-deep); margin-bottom: 1.8rem; font-weight: 400;
+  opacity: 0; animation: fu 1s ease forwards 0.4s;
+}
+.hero-desc {
+  font-size: 1.05rem; color: var(--text-mid); max-width: 600px;
+  margin: 0 auto 2.5rem; line-height: 1.85;
+  opacity: 0; animation: fu 1s ease forwards 0.6s;
+}
+@keyframes fu { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+.btn {
+  display: inline-block; padding: 1rem 2.4rem; border-radius: 50px;
+  font-family: 'Outfit', sans-serif; font-size: 0.8rem; font-weight: 400;
+  letter-spacing: 0.13em; text-transform: uppercase; text-decoration: none;
+  transition: all 0.4s ease; cursor: pointer; border: none;
+}
+.btn-navy { background: var(--navy-deep); color: white; }
+.btn-navy:hover { background: var(--navy); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(30,58,79,0.2); }
+.btn-outline { background: transparent; color: var(--navy-deep); border: 1.5px solid var(--border-ice); }
+.btn-outline:hover { background: var(--ice-pale); border-color: var(--slate); }
+
+.wave-divider { width: 100%; line-height: 0; overflow: hidden; }
+.wave-divider svg { width: 100%; height: 100px; display: block; }
+
+/* Sections */
+.section { padding: 7rem 4rem; }
+.section-white { background: var(--white); }
+.section-ice { background: var(--ice-pale); }
+
+.section-label {
+  font-size: 0.7rem; font-weight: 500; letter-spacing: 0.25em;
+  text-transform: uppercase; color: var(--slate); margin-bottom: 1.5rem;
+  display: flex; align-items: center; gap: 0.8rem;
+}
+.section-label::before { content: ''; width: 22px; height: 1px; background: var(--slate); }
+
+.container { max-width: 1200px; margin: 0 auto; }
+
+.section-title {
+  font-size: clamp(2.2rem, 5vw, 3.2rem); margin-bottom: 0.8rem;
+  color: var(--navy-deep); line-height: 1.15;
+}
+
+.section-desc {
+  font-size: 1.05rem; color: var(--text-mid); max-width: 700px;
+  line-height: 1.85; margin-bottom: 3rem;
+}
+
+/* Team Grid */
+.team-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem; margin-top: 3rem;
+}
+.team-card {
+  background: white; border-radius: 16px; overflow: hidden;
+  border: 1px solid var(--border-light); transition: all 0.4s ease;
+  display: flex; flex-direction: column; height: 100%;
+}
+.team-card:hover {
+  transform: translateY(-10px); box-shadow: 0 25px 60px rgba(30,58,79,0.12);
+  border-color: var(--gold-accent);
+}
+.team-image {
+  width: 100%; height: 280px; background: linear-gradient(135deg, var(--ice-pale) 0%, var(--beige-light) 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 4rem; font-weight: 300; color: var(--slate);
+  font-family: 'Cormorant Garamond', serif;
+}
+.team-content { padding: 2rem; display: flex; flex-direction: column; flex-grow: 1; }
+.team-card h3 { color: var(--navy-deep); font-size: 1.25rem; margin-bottom: 0.3rem; }
+.team-role { font-size: 0.8rem; color: var(--gold-accent); font-weight: 600; letter-spacing: 0.1em; margin-bottom: 1rem; text-transform: uppercase; }
+.team-card p { color: var(--text-mid); font-size: 0.9rem; line-height: 1.7; }
+.team-credentials {
+  font-size: 0.8rem; color: var(--text-light); font-style: italic; margin-top: auto; padding-top: 1rem;
+  border-top: 1px solid var(--border-light); margin-top: 1rem;
+}
+
+/* Section Headers */
+.section-header {
+  text-align: center; margin-bottom: 3rem;
+}
+.section-header-label {
+  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--gold-accent); margin-bottom: 0.8rem;
+}
+.section-header h2 {
+  font-size: 2.2rem; color: var(--navy-deep); margin-bottom: 1rem;
+}
+
+/* Footer */
+footer {
+  background: var(--navy-deep); color: white; padding: 4rem 2rem;
+  text-align: center;
+}
+footer p { opacity: 0.7; font-size: 0.9rem; }
+footer a { color: var(--gold-accent); text-decoration: none; }
+
+@media (max-width: 768px) {
+  .hero { padding-top: 60px; }
+  .section { padding: 4rem 2rem; }
+  .team-grid { grid-template-columns: 1fr; }
+}
+
+</style>
+</head>
+<body>
+<!-- Navigation -->
+<nav id="nav">
+  <div class="nav-logo">
+    <div class="nav-logo-icon">🌿</div>
+    <span class="nav-logo-text">PIA</span>
+  </div>
+  
+  <ul class="nav-links">
+    <li class="nav-item">
+      <a href="/">Home</a>
+    </li>
+    
+    <li class="nav-item">
+      <a href="/services.html">Services <span class="nav-dropdown-arrow">▼</span></a>
+      <div class="nav-dropdown">
+        <a href="/services.html">Our Services</a>
+        <a href="/services.html#workshops">Workshops & Seminars</a>
+        <a href="/byron-bay-training.html">Clinical Skills Intensive</a>
+        <a href="/pat-research-teams.html">Training for Research Teams</a>
+        <a href="/services.html#consultancy">Consultancy Services</a>
+        <a href="/services.html#ongoing">Ongoing Education</a>
+      </div>
+    </li>
+    
+    <li class="nav-item">
+      <a href="/byron-bay-training.html">Training <span class="nav-dropdown-arrow">▼</span></a>
+      <div class="nav-dropdown">
+        <a href="/byron-bay-training.html">Byron Bay Intensive</a>
+        <a href="/online-course.html">Online Course (Part A)</a>
+        <a href="/pat-research-teams.html">Training for Research Teams</a>
+        <a href="/psychedelic-therapy-training-australia.html">Training Guide & Resources</a>
+      </div>
+    </li>
+    
+    <li class="nav-item">
+      <a href="/about.html">About <span class="nav-dropdown-arrow">▼</span></a>
+      <div class="nav-dropdown">
+        <a href="/about.html">About PIA</a>
+        <a href="/team.html">Our Team</a>
+        <a href="/partnerships.html">Partnerships</a>
+      </div>
+    </li>
+    
+    <li class="nav-item">
+      <a href="/psychedelic-therapy-training-australia.html">Resources <span class="nav-dropdown-arrow">▼</span></a>
+      <div class="nav-dropdown">
+        <a href="/psychedelic-therapy-training-australia.html">Training Guide</a>
+        <a href="/faq.html">FAQ</a>
+      </div>
+    </li>
+    
+    <li class="nav-item">
+      <a href="/contact.html">Contact</a>
+    </li>
+  </ul>
+  
+  <a href="/byron-bay-training.html" class="btn btn-navy nav-cta">Training</a>
+</nav>
+
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-bg-circles">
+    <div class="hero-bg-circle"></div>
+    <div class="hero-bg-circle"></div>
+    <div class="hero-bg-circle"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-label">Meet the Experts</div>
+    <h1>Our Team</h1>
+    <p class="hero-desc">Australia's pioneering researchers, clinicians, and specialists in psychedelic-assisted therapy. Learn from leaders who have shaped the field.</p>
+  </div>
+</section>
+
+<div class="wave-divider">
+  <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+    <path d="M0,50 Q360,0 720,50 T1440,50 L1440,100 L0,100 Z" fill="#f3f8fa"/>
+  </svg>
+</div>
+
+<!-- Core Team -->
+<section class="section section-ice" id="team">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-header-label">Leadership</div>
+      <h2>Core Team</h2>
+      <p style="color: var(--text-mid); font-size: 1rem; max-width: 600px; margin: 0 auto;">The visionary leaders driving PIA's mission to advance evidence-based, ethical psychedelic-assisted therapy in Australia.</p>
+    </div>
+    
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-image">D</div>
+        <div class="team-content">
+          <h3>Diego Pinzon</h3>
+          <div class="team-role">Psychedelic Educator</div>
+          <p>Contributed to St. Vincent's psilocybin trials. First Australian to complete Psychedelics Today's 12-month Vital program. Focus on clinical integration and ethics.</p>
+          <div class="team-credentials">M.A. Transpersonal Psychology</div>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-image">K</div>
+        <div class="team-content">
+          <h3>Kylie O'Brien</h3>
+          <div class="team-role">Clinical Psychologist</div>
+          <p>Clinical psychologist with extensive experience in therapeutic practice. Committed to bringing evidence-based psychedelic-assisted therapy to Australian practitioners.</p>
+          <div class="team-credentials">Clinical Psychology</div>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-image">R</div>
+        <div class="team-content">
+          <h3>Renee Harvey</h3>
+          <div class="team-role">Clinical Psychologist & Trainer</div>
+          <p>Trainer on Imperial College London's psilocybin trial. Extensive experience integrating somatic and psychedelic-assisted approaches with a focus on trauma resolution.</p>
+          <div class="team-credentials">Clin.Psych., Imperial College Trainer</div>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-image">P</div>
+        <div class="team-content">
+          <h3>Petra Skeffington</h3>
+          <div class="team-role">Clinical Psychologist & Researcher</div>
+          <p>First MAPS-certified clinician in Australia. Co-investigator on Australia's first psilocybin trial at St. Vincent's Hospital. Leading researcher in psychedelic protocols.</p>
+          <div class="team-credentials">Ph.D., MAPS-Certified, St. Vincent's Researcher</div>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-image">S</div>
+        <div class="team-content">
+          <h3>Stephen Bright</h3>
+          <div class="team-role">Psychologist & Researcher</div>
+          <p>First MAPS-certified clinician in Australia. Leading researcher in psychedelic therapeutic protocols and clinical trial methodology. Advancing the evidence base.</p>
+          <div class="team-credentials">Ph.D., MAPS-Certified, Researcher</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wave-divider">
+  <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+    <path d="M0,50 Q360,100 720,50 T1440,50 L1440,0 L0,0 Z" fill="#ffffff"/>
+  </svg>
+</div>
+
+<!-- Associates -->
+<section class="section section-white">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-header-label">Collaborators</div>
+      <h2>Associates & Partners</h2>
+      <p style="color: var(--text-mid); font-size: 1rem; max-width: 600px; margin: 0 auto;">Distinguished researchers and practitioners who contribute their expertise to advancing psychedelic-assisted therapy in clinical and research settings.</p>
+    </div>
+    
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-image">Pr</div>
+        <div class="team-content">
+          <h3>Dr. Prash Puspanathan</h3>
+          <div class="team-role">Doctor & Entrepreneur</div>
+          <p>Medical doctor and entrepreneur with a passion for integrating psychedelic medicine into clinical practice. Brings business acumen and clinical perspective.</p>
+          <div class="team-credentials">Medicine, Entrepreneurship</div>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-image">J</div>
+        <div class="team-content">
+          <h3>James Bennett-Levy</h3>
+          <div class="team-role">Clinical Psychologist & Researcher</div>
+          <p>Clinical psychologist and researcher with expertise in behavioral activation and psychological interventions. Contributes to research methodology and clinical training.</p>
+          <div class="team-credentials">Ph.D., Clinical Psychology & Research</div>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-image">N</div>
+        <div class="team-content">
+          <h3>Dr. Nigel Strauss</h3>
+          <div class="team-role">Psychiatrist & Researcher</div>
+          <p>Psychiatrist with research interests in psychedelic-assisted therapy and novel treatment approaches. Contributes clinical and research expertise to PIA's initiatives.</p>
+          <div class="team-credentials">Psychiatry, Clinical Research</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wave-divider">
+  <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+    <path d="M0,50 Q360,0 720,50 T1440,50 L1440,100 L0,100 Z" fill="#f3f8fa"/>
+  </svg>
+</div>
+
+<!-- Collaborative Ethos -->
+<section class="section section-ice">
+  <div class="container">
+    <div class="section-label">Our Approach</div>
+    <h2 class="section-title">Collaborative & Community-Focused</h2>
+    <p class="section-desc">We believe in the power of teamwork and community. Our diverse team brings together clinical expertise, research rigor, and a shared commitment to advancing ethical, evidence-based psychedelic-assisted therapy in Australia.</p>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem;">
+      <div style="text-align: center; padding: 1.5rem;">
+        <div style="font-size: 2rem; margin-bottom: 0.8rem;">🔬</div>
+        <h4 style="color: var(--navy-deep); margin-bottom: 0.5rem; font-size: 1.1rem;">Evidence-Based</h4>
+        <p style="color: var(--text-mid); font-size: 0.9rem;">Grounded in rigorous research and clinical best practices from around the world.</p>
+      </div>
+      <div style="text-align: center; padding: 1.5rem;">
+        <div style="font-size: 2rem; margin-bottom: 0.8rem;">🤝</div>
+        <h4 style="color: var(--navy-deep); margin-bottom: 0.5rem; font-size: 1.1rem;">Collaborative</h4>
+        <p style="color: var(--text-mid); font-size: 0.9rem;">Working together with partners, researchers, and practitioners to advance the field.</p>
+      </div>
+      <div style="text-align: center; padding: 1.5rem;">
+        <div style="font-size: 2rem; margin-bottom: 0.8rem;">🌍</div>
+        <h4 style="color: var(--navy-deep); margin-bottom: 0.5rem; font-size: 1.1rem;">Community-Driven</h4>
+        <p style="color: var(--text-mid); font-size: 0.9rem;">Building a strong, interconnected community that supports learning and growth.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2026 Psychedelic Institute Australia. All rights reserved.</p>
+  <p style="margin-top: 1rem;">Contact: <a href="mailto:info@psychedelicinstitute.com.au">info@psychedelicinstitute.com.au</a></p>
+</footer>
+
+<!-- Scripts -->
+<script>
+  // Navigation scroll effect
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  });
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

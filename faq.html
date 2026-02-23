@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ — Psychedelic Institute Australia | Questions Answered</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --white: #ffffff;
+  --off-white: #f8fafb;
+  --ice: #e8f1f5;
+  --ice-light: #eef5f8;
+  --ice-pale: #f3f8fa;
+  --beige: #d5d3c8;
+  --beige-light: #e8e6dd;
+  --stone: #8a8a80;
+  --slate: #4a6a7a;
+  --navy: #1e3a4f;
+  --navy-deep: #142c3d;
+  --navy-dark: #0f2330;
+  --text-dark: #1a2e3d;
+  --text-mid: #4a5d6a;
+  --text-light: #7a8d98;
+  --gold-accent: #c4a55a;
+  --border-light: #dfe8ed;
+  --border-ice: #d0e2ea;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  color: var(--text-dark);
+  background: var(--white);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5 { font-family: 'Cormorant Garamond', serif; font-weight: 400; }
+
+/* Navigation */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 1.5rem 4rem;
+  display: flex; justify-content: space-between; align-items: center;
+  transition: all 0.5s ease;
+  background: white;
+}
+nav.scrolled {
+  padding: 1rem 4rem;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(25px);
+  border-bottom: 1px solid var(--border-light);
+}
+.nav-logo { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; }
+.nav-logo-icon {
+  width: 40px; height: 40px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+  background: var(--ice-pale);
+}
+.nav-logo-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem; font-weight: 500; color: var(--navy-deep);
+}
+.nav-links { display: flex; gap: 2.2rem; list-style: none; align-items: center; }
+.nav-links a {
+  font-size: 0.78rem; font-weight: 400; color: var(--text-mid);
+  text-decoration: none; letter-spacing: 0.12em; text-transform: uppercase;
+  transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--navy); }
+.nav-cta {
+  padding: 0.6rem 1.6rem !important; background: var(--navy-deep) !important;
+  color: white !important; border-radius: 50px;
+  transition: all 0.4s ease !important;
+}
+.nav-cta:hover {
+  background: var(--navy) !important; transform: translateY(-1px);
+  box-shadow: 0 8px 30px rgba(30,58,79,0.2);
+}
+
+/* Dropdown Menus */
+.nav-item {
+  position: relative;
+}
+
+.nav-item > a {
+  padding: 0.8rem 1rem;
+  display: flex; align-items: center; gap: 0.3rem;
+}
+
+.nav-dropdown {
+  position: absolute; top: 100%; left: 0;
+  background: white; border-radius: 8px;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 8px 24px rgba(30,58,79,0.1);
+  min-width: 220px;
+  opacity: 0; visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  padding: 0.5rem 0;
+  z-index: 1001;
+}
+
+.nav-item:hover .nav-dropdown {
+  opacity: 1; visibility: visible;
+  transform: translateY(0);
+}
+
+.nav-dropdown a {
+  display: block; padding: 0.8rem 1.2rem;
+  color: var(--text-mid); text-decoration: none;
+  font-size: 0.8rem; letter-spacing: 0.08em;
+  text-transform: none; font-weight: 400;
+  transition: all 0.2s;
+}
+
+.nav-dropdown a:hover {
+  background: var(--ice-pale); color: var(--navy-deep);
+  padding-left: 1.5rem;
+}
+
+.nav-dropdown-arrow {
+  font-size: 0.6rem; transition: transform 0.3s;
+}
+
+.nav-item:hover .nav-dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+@media (max-width: 768px) {
+  nav { padding: 1rem 2rem; }
+  .nav-links { display: none; }
+  .nav-cta { display: none; }
+  .nav-logo-text { display: none; }
+}
+
+/* Hero */
+.hero {
+  min-height: 80vh; display: flex; align-items: center; justify-content: center;
+  text-align: center; position: relative; overflow: hidden;
+  background: linear-gradient(180deg, var(--ice-pale) 0%, var(--white) 60%);
+  padding-top: 80px;
+}
+.hero-bg-circles { position: absolute; inset: 0; overflow: hidden; }
+.hero-bg-circle {
+  position: absolute; border-radius: 50%;
+  border: 1px solid var(--border-ice); opacity: 0.4;
+}
+.hero-bg-circle:nth-child(1) { width: 700px; height: 700px; top: -20%; right: -10%; animation: gp 15s ease-in-out infinite; }
+.hero-bg-circle:nth-child(2) { width: 500px; height: 500px; bottom: -15%; left: -8%; animation: gp 15s ease-in-out infinite reverse; }
+.hero-bg-circle:nth-child(3) { width: 300px; height: 300px; top: 20%; left: 15%; border-color: var(--beige-light); animation: gp 12s ease-in-out infinite 3s; }
+@keyframes gp { 0%,100% { transform: scale(1); opacity: 0.3; } 50% { transform: scale(1.05); opacity: 0.5; } }
+
+.hero-content { position: relative; z-index: 2; max-width: 820px; padding: 2rem; }
+.hero-label {
+  font-size: 0.72rem; font-weight: 500; letter-spacing: 0.25em;
+  text-transform: uppercase; color: var(--slate); margin-bottom: 1.5rem;
+  display: flex; align-items: center; justify-content: center; gap: 0.8rem;
+  opacity: 0; animation: fu 1s ease forwards 0.2s;
+}
+.hero-label::before, .hero-label::after { content: ''; width: 25px; height: 1px; background: var(--slate); opacity: 0.4; }
+.hero h1 {
+  font-size: clamp(2.8rem, 6vw, 4.8rem); line-height: 1.1;
+  color: var(--navy-deep); margin-bottom: 1.8rem; font-weight: 400;
+  opacity: 0; animation: fu 1s ease forwards 0.4s;
+}
+.hero-desc {
+  font-size: 1.05rem; color: var(--text-mid); max-width: 600px;
+  margin: 0 auto; line-height: 1.85;
+  opacity: 0; animation: fu 1s ease forwards 0.6s;
+}
+@keyframes fu { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+.wave-divider { width: 100%; line-height: 0; overflow: hidden; }
+.wave-divider svg { width: 100%; height: 100px; display: block; }
+
+/* Sections */
+.section { padding: 7rem 4rem; }
+.section-white { background: var(--white); }
+.section-ice { background: var(--ice-pale); }
+
+.section-label {
+  font-size: 0.7rem; font-weight: 500; letter-spacing: 0.25em;
+  text-transform: uppercase; color: var(--slate); margin-bottom: 1.5rem;
+  display: flex; align-items: center; gap: 0.8rem;
+}
+.section-label::before { content: ''; width: 22px; height: 1px; background: var(--slate); }
+
+.container { max-width: 1200px; margin: 0 auto; }
+
+.section-title {
+  font-size: clamp(2.2rem, 5vw, 3.2rem); margin-bottom: 0.8rem;
+  color: var(--navy-deep); line-height: 1.15;
+}
+
+.section-desc {
+  font-size: 1.05rem; color: var(--text-mid); max-width: 700px;
+  line-height: 1.85; margin-bottom: 3rem;
+}
+
+/* FAQ Container */
+.faq-container { max-width: 900px; margin: 3rem auto 0; }
+.faq-item {
+  border-bottom: 1px solid var(--border-light); padding: 2rem 0;
+  margin-bottom: 0;
+}
+.faq-item:first-child { border-top: 1px solid var(--border-light); }
+.faq-question {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  cursor: pointer; transition: all 0.3s ease; gap: 1.5rem;
+}
+.faq-question:hover { color: var(--gold-accent); }
+.faq-question h3 { font-size: 1.15rem; color: var(--navy-deep); flex: 1; text-align: left; }
+.faq-toggle {
+  font-size: 1.5rem; transition: transform 0.3s ease; flex-shrink: 0;
+  color: var(--gold-accent); margin-top: 0.2rem;
+}
+.faq-item.open .faq-toggle { transform: rotate(180deg); }
+.faq-answer {
+  max-height: 0; overflow: hidden; transition: max-height 0.4s ease;
+  color: var(--text-mid); margin-top: 1.5rem;
+}
+.faq-item.open .faq-answer { max-height: 1000px; }
+.faq-answer p { margin-bottom: 1rem; line-height: 1.85; font-size: 0.95rem; }
+.faq-answer strong { color: var(--navy-deep); font-weight: 500; }
+.faq-answer ul {
+  list-style: none; margin: 1rem 0; padding-left: 0;
+}
+.faq-answer li {
+  padding: 0.5rem 0 0.5rem 1.5rem; position: relative;
+}
+.faq-answer li::before {
+  content: '•'; position: absolute; left: 0; color: var(--gold-accent);
+  font-weight: bold;
+}
+
+/* Still Have Questions */
+.still-questions {
+  background: linear-gradient(135deg, var(--ice-pale) 0%, var(--beige-light) 100%);
+  padding: 3rem; border-radius: 16px; border: 1px solid var(--border-light);
+  text-align: center; margin-top: 3rem;
+}
+.still-questions h3 { color: var(--navy-deep); font-size: 1.3rem; margin-bottom: 1rem; }
+.still-questions p { color: var(--text-mid); margin-bottom: 1.5rem; font-size: 0.95rem; }
+.still-questions a {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  padding: 0.9rem 1.8rem; background: var(--navy-deep); color: white;
+  border-radius: 50px; text-decoration: none; font-size: 0.8rem;
+  font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+  transition: all 0.4s ease;
+}
+.still-questions a:hover {
+  background: var(--navy); transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(30,58,79,0.2);
+}
+
+/* Footer */
+footer {
+  background: var(--navy-deep); color: white; padding: 4rem 2rem;
+  text-align: center;
+}
+footer p { opacity: 0.7; font-size: 0.9rem; }
+footer a { color: var(--gold-accent); text-decoration: none; }
+
+@media (max-width: 768px) {
+  .hero { padding-top: 60px; }
+  .section { padding: 4rem 2rem; }
+  .faq-question { flex-direction: column; gap: 1rem; }
+  .faq-toggle { transform: rotate(0deg); margin-top: 0; }
+  .faq-item.open .faq-toggle { transform: rotate(180deg); }
+}
+
+</style>
+</head>
+<body>
+<!-- Navigation -->
+<nav id="nav">
+  <div class="nav-logo">
+    <div class="nav-logo-icon">🌿</div>
+    <span class="nav-logo-text">PIA</span>
+  </div>
+  
+  <ul class="nav-links">
+    <li class="nav-item">
+      <a href="/">Home</a>
+    </li>
+    
+    <li class="nav-item">
+      <a href="/services.html">Services <span class="nav-dropdown-arrow">▼</span></a>
+      <div class="nav-dropdown">
+        <a href="/services.html">Our Services</a>
+        <a href="/services.html#workshops">Workshops & Seminars</a>
+        <a href="/byron-bay-training.html">Clinical Skills Intensive</a>
+        <a href="/pat-research-teams.html">Training for Research Teams</a>
+        <a href="/services.html#consultancy">Consultancy Services</a>
+        <a href="/services.html#ongoing">Ongoing Education</a>
+      </div>
+    </li>
+    
+    <li class="nav-item">
+      <a href="/byron-bay-training.html">Training <span class="nav-dropdown-arrow">▼</span></a>
+      <div class="nav-dropdown">
+        <a href="/byron-bay-training.html">Byron Bay Intensive</a>
+        <a href="/online-course.html">Online Course (Part A)</a>
+        <a href="/pat-research-teams.html">Training for Research Teams</a>
+        <a href="/psychedelic-therapy-training-australia.html">Training Guide & Resources</a>
+      </div>
+    </li>
+    
+    <li class="nav-item">
+      <a href="/about.html">About <span class="nav-dropdown-arrow">▼</span></a>
+      <div class="nav-dropdown">
+        <a href="/about.html">About PIA</a>
+        <a href="/team.html">Our Team</a>
+        <a href="/partnerships.html">Partnerships</a>
+      </div>
+    </li>
+    
+    <li class="nav-item">
+      <a href="/psychedelic-therapy-training-australia.html">Resources <span class="nav-dropdown-arrow">▼</span></a>
+      <div class="nav-dropdown">
+        <a href="/psychedelic-therapy-training-australia.html">Training Guide</a>
+        <a href="/faq.html">FAQ</a>
+      </div>
+    </li>
+    
+    <li class="nav-item">
+      <a href="/contact.html">Contact</a>
+    </li>
+  </ul>
+  
+  <a href="/byron-bay-training.html" class="btn btn-navy nav-cta">Training</a>
+</nav>
+
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-bg-circles">
+    <div class="hero-bg-circle"></div>
+    <div class="hero-bg-circle"></div>
+    <div class="hero-bg-circle"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-label">Questions Answered</div>
+    <h1>Frequently Asked Questions</h1>
+    <p class="hero-desc">Find answers to common questions about our training programs, accreditation, and services.</p>
+  </div>
+</section>
+
+<div class="wave-divider">
+  <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+    <path d="M0,50 Q360,0 720,50 T1440,50 L1440,100 L0,100 Z" fill="#f3f8fa"/>
+  </svg>
+</div>
+
+<!-- FAQ Section -->
+<section class="section section-ice">
+  <div class="container">
+    <div class="faq-container">
+      <!-- FAQ Item 1 -->
+      <div class="faq-item open">
+        <div class="faq-question">
+          <h3>Is this an accredited qualification? What qualification will I receive from this program?</h3>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>We don't call our program a Certificate since this could be misleading. In Australia, a Certificate is a recognised qualification provided by a Registered Training Organization (RTO). Since psychedelic-assisted therapy is not yet a regulated field with established training standards, there are currently no RTO-recognised certificates available in the practical application and know-how of this specialty.</p>
+          
+          <p><strong>Current Regulatory Status:</strong></p>
+          <ul>
+            <li>No official body accrediting psychedelic-assisted therapy training in Australia</li>
+            <li>No professional organisation currently regulates psychedelic therapy training</li>
+            <li>No program in Australia can offer an official or 'accredited' qualification in psychedelic therapy</li>
+          </ul>
+
+          <p><strong>Important Distinction:</strong></p>
+          <p>CPD (Continuing Professional Development) accreditation is not the same as an official qualification or accreditation to deliver psychedelic-assisted therapy in Australia. Some programs advertise CPD accreditation, but this relates to professional development points rather than qualification to practice in this field.</p>
+
+          <p><strong>What IS Accepted:</strong></p>
+          <ul>
+            <li><strong>TGA Guidelines:</strong> Treating teams need a lead therapist with psychedelic therapist training</li>
+            <li><strong>Our Graduates:</strong> Currently working as psychedelic therapists in treating teams alongside Authorised Prescribers regulated by the TGA</li>
+            <li><strong>Recognition:</strong> Training accepted in clinical trials and private practice settings</li>
+          </ul>
+
+          <p><strong>What We Provide:</strong></p>
+          <ul>
+            <li>Certificate of completion</li>
+            <li>High-quality, evidence-based training from highly experienced practitioners</li>
+            <li>Focus on practical skills, ethics, and safety</li>
+            <li>Training recognized and accepted in clinical trials and private practice</li>
+          </ul>
+
+          <p><strong>Our Position:</strong></p>
+          <p>When the field is unregulated and no official qualification exists, in-person instructor experience and training quality matter far more than terminology. We encourage you to evaluate any program based on these factors rather than the language used to describe credentials.</p>
+        </div>
+      </div>
+
+      <!-- FAQ Item 2 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>What's the difference between CPD hours and a professional qualification?</h3>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p><strong>CPD (Continuing Professional Development) Hours:</strong> Recognition points toward maintaining your professional registration (e.g., with APS or AHPRA). Our 35 CPD hours satisfy these requirements.</p>
+          
+          <p><strong>Professional Qualification:</strong> A formal credential certifying you to practice a specific role. Since psychedelic-assisted therapy is not yet officially regulated, no program can offer an "official" qualification. This applies to every training in Australia.</p>
+
+          <p><strong>Why This Matters:</strong></p>
+          <ul>
+            <li>CPD hours help you maintain professional registration</li>
+            <li>They do NOT constitute a qualification to practice a specialty</li>
+            <li>You still need your base professional registration (psychology, psychiatry, counselling, etc.)</li>
+            <li>PIA training prepares you to practice psychedelic-assisted therapy within your existing professional scope</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- FAQ Item 3 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>Who can prescribe psilocybin and MDMA in Australia?</h3>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p><strong>Only psychiatrists who have been approved as Authorised Prescribers by the TGA can prescribe psilocybin and MDMA.</strong></p>
+
+          <p><strong>Key Points:</strong></p>
+          <ul>
+            <li>Psychiatrists must apply and be approved by the TGA</li>
+            <li>They must be approved by a Human Research Ethics Committee (HREC)</li>
+            <li>Treatment must occur in a controlled clinical environment</li>
+            <li>Therapists work as part of the treating team but do NOT prescribe</li>
+          </ul>
+
+          <p><strong>The Role of Therapists:</strong></p>
+          <p>Mental health professionals (psychologists, counsellors, social workers, mental health nurses) work alongside the Authorised Prescriber as part of the treating team. Your role and responsibilities are determined by your professional qualifications and the clinical governance framework.</p>
+        </div>
+      </div>
+
+      <!-- FAQ Item 4 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>Do I need to be a psychologist to do psychedelic-assisted therapy?</h3>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p><strong>No.</strong> Treating teams typically include mental health professionals such as:</p>
+          <ul>
+            <li>Psychologists</li>
+            <li>Psychiatrists</li>
+            <li>Counsellors</li>
+            <li>Social workers</li>
+            <li>Mental health nurses</li>
+          </ul>
+
+          <p><strong>Your Base Qualification Determines Your Scope:</strong></p>
+          <p>Your existing professional qualification (psychology, counselling, nursing, social work, etc.) defines what you can do within a treating team. PIA training prepares you to add psychedelic-assisted therapy skills to your existing professional practice.</p>
+
+          <p><strong>What You Need:</strong></p>
+          <ul>
+            <li>Existing registration with a regulatory body (AHPRA, PACFA, ACA, etc.)</li>
+            <li>Professional experience in your field (typically 3+ years)</li>
+            <li>Completion of PIA training</li>
+            <li>Work within a treating team with an Authorised Prescriber</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- FAQ Item 5 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>How long does psychedelic therapy training take?</h3>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>Training program length varies significantly depending on program depth, in-person components, and provider. <strong>Longer programs are not automatically better — content quality, practical hours, and instructor experience matter more than duration.</strong></p>
+
+          <p><strong>PIA's Approach:</strong></p>
+          <ul>
+            <li><strong>12-week online course:</strong> Foundational theoretical knowledge</li>
+            <li><strong>5-day intensive:</strong> Hands-on clinical skills training in Byron Bay</li>
+            <li><strong>Total:</strong> ~12-15 weeks to completion of intensive training</li>
+            <li><strong>Plus:</strong> Ongoing supervision and practice recommended for competence development</li>
+          </ul>
+
+          <p><strong>Important Note:</strong></p>
+          <p>Completion of a 5-day intensive does NOT make you highly competent. Competence requires ongoing clinical experience, supervision, and reflective practice beyond the training. The training goal is to equip you with foundational clinical skills and protocol knowledge.</p>
+        </div>
+      </div>
+
+      <!-- FAQ Item 6 -->
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>What's included in the training cost?</h3>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p><strong>Included:</strong></p>
+          <ul>
+            <li>5 days of intensive training</li>
+            <li>35 approved CPD hours</li>
+            <li>All course materials and handouts</li>
+            <li>Certificate of completion</li>
+            <li>Access to training community</li>
+            <li>Expert instruction from experienced practitioners</li>
+          </ul>
+
+          <p><strong>Not Included:</strong></p>
+          <ul>
+            <li>Accommodation</li>
+            <li>Meals</li>
+            <li>Travel</li>
+          </ul>
+
+          <p><strong>Note:</strong> Some training sessions may be conducted online. Hybrid format allows flexibility while maintaining hands-on practical components.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Still Have Questions -->
+    <div class="still-questions">
+      <h3>Still Have Questions?</h3>
+      <p>If you didn't find the answer you're looking for, we're here to help. Reach out to our team for detailed information about our programs and services.</p>
+      <a href="/contact.html">Contact Us →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2026 Psychedelic Institute Australia. All rights reserved.</p>
+  <p style="margin-top: 1rem;">Contact: <a href="mailto:info@psychedelicinstitute.com.au">info@psychedelicinstitute.com.au</a></p>
+</footer>
+
+<!-- Scripts -->
+<script>
+  // Navigation scroll effect
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  });
+
+  // FAQ Accordion
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach((item, index) => {
+    const question = item.querySelector('.faq-question');
+    
+    question.addEventListener('click', () => {
+      // Close all other items
+      faqItems.forEach((otherItem, otherIndex) => {
+        if (otherIndex !== index) {
+          otherItem.classList.remove('open');
+        }
+      });
+      
+      // Toggle current item
+      item.classList.toggle('open');
+    });
+  });
+</script>
+
+</body>
+</html>

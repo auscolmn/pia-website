@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Byron Bay Training — Essential Skills for Psychedelic-Assisted Therapy | PIA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --white: #ffffff;
+  --off-white: #f8fafb;
+  --ice: #e8f1f5;
+  --ice-light: #eef5f8;
+  --ice-pale: #f3f8fa;
+  --beige: #d5d3c8;
+  --beige-light: #e8e6dd;
+  --stone: #8a8a80;
+  --slate: #4a6a7a;
+  --navy: #1e3a4f;
+  --navy-deep: #142c3d;
+  --navy-dark: #0f2330;
+  --text-dark: #1a2e3d;
+  --text-mid: #4a5d6a;
+  --text-light: #7a8d98;
+  --gold-accent: #c4a55a;
+  --border-light: #dfe8ed;
+  --border-ice: #d0e2ea;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  color: var(--text-dark);
+  background: var(--white);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5 { font-family: 'Cormorant Garamond', serif; font-weight: 400; }
+
+/* Navigation */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 1.5rem 4rem;
+  display: flex; justify-content: space-between; align-items: center;
+  transition: all 0.5s ease;
+  background: white;
+}
+nav.scrolled {
+  padding: 1rem 4rem;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(25px);
+  border-bottom: 1px solid var(--border-light);
+}
+.nav-logo { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; }
+.nav-logo-icon {
+  width: 40px; height: 40px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+  background: var(--ice-pale);
+}
+.nav-logo-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem; font-weight: 500; color: var(--navy-deep);
+}
+.nav-links { display: flex; gap: 2.2rem; list-style: none; align-items: center; }
+.nav-links a {
+  font-size: 0.78rem; font-weight: 400; color: var(--text-mid);
+  text-decoration: none; letter-spacing: 0.12em; text-transform: uppercase;
+  transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--navy); }
+.nav-cta {
+  padding: 0.6rem 1.6rem !important; background: var(--navy-deep) !important;
+  color: white !important; border-radius: 50px;
+  transition: all 0.4s ease !important;
+}
+.nav-cta:hover {
+  background: var(--navy) !important; transform: translateY(-1px);
+  box-shadow: 0 8px 30px rgba(30,58,79,0.2);
+}
+
+/* Dropdown Menus */
+.nav-item {
+  position: relative;
+}
+
+.nav-item > a {
+  padding: 0.8rem 1rem;
+  display: flex; align-items: center; gap: 0.3rem;
+}
+
+.nav-dropdown {
+  position: absolute; top: 100%; left: 0;
+  background: white; border-radius: 8px;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 8px 24px rgba(30,58,79,0.1);
+  min-width: 220px;
+  opacity: 0; visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  padding: 0.5rem 0;
+  z-index: 1001;
+}
+
+.nav-item:hover .nav-dropdown {
+  opacity: 1; visibility: visible;
+  transform: translateY(0);
+}
+
+.nav-dropdown a {
+  display: block; padding: 0.8rem 1.2rem;
+  color: var(--text-mid); text-decoration: none;
+  font-size: 0.8rem; letter-spacing: 0.08em;
+  text-transform: none; font-weight: 400;
+  transition: all 0.2s;
+}
+
+.nav-dropdown a:hover {
+  background: var(--ice-pale); color: var(--navy-deep);
+  padding-left: 1.5rem;
+}
+
+.nav-dropdown-arrow {
+  font-size: 0.6rem; transition: transform 0.3s;
+}
+
+.nav-item:hover .nav-dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+@media (max-width: 768px) {
+  nav { padding: 1rem 2rem; }
+  .nav-links { display: none; }
+  .nav-cta { display: none; }
+  .nav-logo-text { display: none; }
+}
+
+/* Hero */
+.hero {
+  min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  text-align: center; position: relative; overflow: hidden;
+  background: linear-gradient(180deg, var(--ice-pale) 0%, var(--white) 60%);
+  padding-top: 80px;
+}
+.hero-bg-circles { position: absolute; inset: 0; overflow: hidden; }
+.hero-bg-circle {
+  position: absolute; border-radius: 50%;
+  border: 1px solid var(--border-ice); opacity: 0.4;
+}
+.hero-bg-circle:nth-child(1) { width: 700px; height: 700px; top: -20%; right: -10%; animation: gp 15s ease-in-out infinite; }
+.hero-bg-circle:nth-child(2) { width: 500px; height: 500px; bottom: -15%; left: -8%; animation: gp 15s ease-in-out infinite reverse; }
+.hero-bg-circle:nth-child(3) { width: 300px; height: 300px; top: 20%; left: 15%; border-color: var(--beige-light); animation: gp 12s ease-in-out infinite 3s; }
+@keyframes gp { 0%,100% { transform: scale(1); opacity: 0.3; } 50% { transform: scale(1.05); opacity: 0.5; } }
+
+.hero-content { position: relative; z-index: 2; max-width: 820px; padding: 2rem; }
+.hero-label {
+  font-size: 0.72rem; font-weight: 500; letter-spacing: 0.25em;
+  text-transform: uppercase; color: var(--slate); margin-bottom: 1.5rem;
+  display: flex; align-items: center; justify-content: center; gap: 0.8rem;
+  opacity: 0; animation: fu 1s ease forwards 0.2s;
+}
+.hero-label::before, .hero-label::after { content: ''; width: 25px; height: 1px; background: var(--slate); opacity: 0.4; }
+.hero h1 {
+  font-size: clamp(2.8rem, 6vw, 4.8rem); line-height: 1.1;
+  color: var(--navy-deep); margin-bottom: 1.8rem; font-weight: 400;
+  opacity: 0; animation: fu 1s ease forwards 0.4s;
+}
+.hero-date {
+  font-size: 1.2rem; color: var(--gold-accent); font-weight: 500;
+  letter-spacing: 0.08em; margin-bottom: 1.5rem;
+  opacity: 0; animation: fu 1s ease forwards 0.5s;
+}
+.hero-desc {
+  font-size: 1.05rem; color: var(--text-mid); max-width: 600px;
+  margin: 0 auto 2.5rem; line-height: 1.85;
+  opacity: 0; animation: fu 1s ease forwards 0.6s;
+}
+.hero-actions {
+  display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap;
+  opacity: 0; animation: fu 1s ease forwards 0.8s;
+}
+@keyframes fu { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+.btn {
+  display: inline-block; padding: 1rem 2.4rem; border-radius: 50px;
+  font-family: 'Outfit', sans-serif; font-size: 0.8rem; font-weight: 400;
+  letter-spacing: 0.13em; text-transform: uppercase; text-decoration: none;
+  transition: all 0.4s ease; cursor: pointer; border: none;
+}
+.btn-navy { background: var(--navy-deep); color: white; }
+.btn-navy:hover { background: var(--navy); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(30,58,79,0.2); }
+.btn-outline { background: transparent; color: var(--navy-deep); border: 1.5px solid var(--border-ice); }
+.btn-outline:hover { background: var(--ice-pale); border-color: var(--slate); }
+
+.wave-divider { width: 100%; line-height: 0; overflow: hidden; }
+.wave-divider svg { width: 100%; height: 100px; display: block; }
+
+/* Sections */
+.section { padding: 7rem 4rem; }
+.section-white { background: var(--white); }
+.section-ice { background: var(--ice-pale); }
+.section-navy { background: var(--navy-deep); color: white; }
+
+.section-label {
+  font-size: 0.7rem; font-weight: 500; letter-spacing: 0.25em;
+  text-transform: uppercase; color: var(--slate); margin-bottom: 1.5rem;
+  display: flex; align-items: center; gap: 0.8rem;
+}
+.section-label::before { content: ''; width: 22px; height: 1px; background: var(--slate); }
+.section-navy .section-label { color: rgba(255,255,255,0.5); }
+.section-navy .section-label::before { background: rgba(255,255,255,0.3); }
+
+.container { max-width: 1200px; margin: 0 auto; }
+
+.section-title {
+  font-size: clamp(2.2rem, 5vw, 3.2rem); margin-bottom: 0.8rem;
+  color: var(--navy-deep); line-height: 1.15;
+}
+.section-navy .section-title { color: white; }
+
+.section-desc {
+  font-size: 1.05rem; color: var(--text-mid); max-width: 700px;
+  line-height: 1.85; margin-bottom: 3rem;
+}
+.section-navy .section-desc { color: rgba(255,255,255,0.85); }
+
+/* Research Stats */
+.stats-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem; margin-top: 3rem;
+}
+.stat-card {
+  background: white; padding: 2.5rem; border-radius: 16px;
+  border: 1px solid var(--border-light); transition: all 0.4s ease;
+}
+.stat-card:hover {
+  transform: translateY(-8px); box-shadow: 0 20px 50px rgba(30,58,79,0.1);
+  border-color: var(--gold-accent);
+}
+.stat-card h3 { font-size: 1.4rem; color: var(--navy-deep); margin-bottom: 1rem; }
+.stat-card .stat-number {
+  font-size: 2.8rem; font-weight: 600; color: var(--gold-accent);
+  font-family: 'Outfit', sans-serif; margin-bottom: 0.5rem;
+}
+.stat-card p { color: var(--text-mid); line-height: 1.8; font-size: 0.95rem; }
+
+/* Process Steps */
+.process-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem; margin-top: 3rem;
+}
+.process-card {
+  position: relative; padding: 2rem; text-align: center;
+}
+.process-number {
+  font-size: 3.2rem; font-family: 'Cormorant Garamond', serif;
+  color: var(--gold-accent); margin-bottom: 1rem;
+  font-weight: 300;
+}
+.process-card h3 { color: var(--navy-deep); margin-bottom: 1rem; font-size: 1.2rem; }
+.process-card p { color: var(--text-mid); line-height: 1.75; }
+
+/* Trainer Cards */
+.trainers-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem; margin-top: 3rem;
+}
+.trainer-card {
+  background: white; border-radius: 16px; overflow: hidden;
+  border: 1px solid var(--border-light); transition: all 0.4s ease;
+}
+.trainer-card:hover {
+  transform: translateY(-10px); box-shadow: 0 25px 60px rgba(30,58,79,0.12);
+}
+.trainer-image {
+  width: 100%; height: 320px; background: var(--ice-pale);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-light); font-size: 0.9rem; font-weight: 500;
+  border-bottom: 1px solid var(--border-light);
+}
+.trainer-content { padding: 2rem; }
+.trainer-card h3 { color: var(--navy-deep); font-size: 1.3rem; margin-bottom: 0.5rem; }
+.trainer-title { font-size: 0.85rem; color: var(--gold-accent); font-weight: 500; letter-spacing: 0.1em; margin-bottom: 1rem; }
+.trainer-card p { color: var(--text-mid); font-size: 0.95rem; line-height: 1.7; }
+
+/* Eligibility */
+.eligibility-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 3rem;
+}
+.eligibility-box {
+  padding: 2.5rem; background: white; border-radius: 16px;
+  border: 1px solid var(--border-light);
+}
+.eligibility-box h3 { color: var(--navy-deep); font-size: 1.2rem; margin-bottom: 1.5rem; }
+.eligibility-box ul { list-style: none; }
+.eligibility-box li {
+  padding: 0.8rem 0; padding-left: 2rem; position: relative;
+  color: var(--text-mid); font-size: 0.95rem;
+}
+.eligibility-box li::before {
+  content: '✓'; position: absolute; left: 0; color: var(--gold-accent);
+  font-weight: bold; font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .eligibility-grid { grid-template-columns: 1fr; }
+  .section { padding: 4rem 2rem; }
+}
+
+/* Details Grid */
+.details-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem; margin-top: 2rem;
+}
+.detail-item { padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; }
+.detail-item h4 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.8rem; opacity: 0.7; }
+.detail-item p { font-size: 1rem; font-weight: 500; }
+
+/* Pricing */
+.pricing-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem; margin-top: 3rem;
+}
+.price-card {
+  padding: 2.5rem; background: white; border-radius: 16px;
+  border: 1px solid var(--border-light); text-align: center;
+}
+.price-card.featured {
+  border: 2px solid var(--gold-accent); box-shadow: 0 10px 40px rgba(196,165,90,0.15);
+  transform: scale(1.02);
+}
+.price-tag { font-size: 0.85rem; color: var(--gold-accent); font-weight: 600; letter-spacing: 0.1em; margin-bottom: 1rem; }
+.price { font-size: 2.5rem; font-weight: 600; color: var(--navy-deep); margin-bottom: 0.5rem; font-family: 'Outfit', sans-serif; }
+.price-desc { font-size: 0.9rem; color: var(--text-light); margin-bottom: 1.5rem; }
+.price-details { font-size: 0.85rem; color: var(--text-mid); text-align: left; margin: 1.5rem 0; line-height: 1.8; }
+
+/* FAQ */
+.faq-container { max-width: 800px; margin: 3rem auto 0; }
+.faq-item {
+  border-bottom: 1px solid var(--border-light); padding: 2rem 0;
+}
+.faq-item:first-child { border-top: 1px solid var(--border-light); }
+.faq-question {
+  display: flex; justify-content: space-between; align-items: center;
+  cursor: pointer; transition: all 0.3s ease;
+}
+.faq-question h3 { font-size: 1.15rem; color: var(--navy-deep); }
+.faq-toggle { font-size: 1.5rem; transition: transform 0.3s ease; }
+.faq-item.open .faq-toggle { transform: rotate(180deg); }
+.faq-answer {
+  max-height: 0; overflow: hidden; transition: max-height 0.4s ease;
+  color: var(--text-mid); margin-top: 1.5rem;
+}
+.faq-item.open .faq-answer { max-height: 500px; }
+.faq-answer p { margin-bottom: 1rem; line-height: 1.85; font-size: 0.95rem; }
+
+.section-navy .faq-question h3 { color: white; }
+.section-navy .faq-answer { color: rgba(255,255,255,0.85); }
+
+/* CTA Section */
+.cta-section {
+  padding: 4rem; background: var(--gold-accent); color: white;
+  border-radius: 20px; text-align: center; margin-top: 3rem;
+}
+.cta-section h2 { font-size: 2rem; margin-bottom: 1rem; }
+.cta-section p { font-size: 1.05rem; margin-bottom: 2rem; opacity: 0.95; }
+
+/* Footer */
+footer {
+  background: var(--navy-deep); color: white; padding: 4rem 2rem;
+  text-align: center;
+}
+footer p { opacity: 0.7; font-size: 0.9rem; }
+
+@media (max-width: 768px) {
+  .hero { padding-top: 60px; }
+  .hero-actions { gap: 0.8rem; }
+  .details-grid { grid-template-columns: 1fr; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .price-card.featured { transform: scale(1); }
+}
+
+</style>
+</head>
+<body>
+<!-- Navigation -->
+<nav id="nav">
+  <div class="nav-logo">
+    <div class="nav-logo-icon">🌿</div>
+    <span class="nav-logo-text">PIA</span>
+  </div>
+  
+  <ul class="nav-links">
+    <li class="nav-item">
+      <a href="/">Home</a>
+    </li>
+    
+    <li class="nav-item">
+      <a href="/services.html">Services <span class="nav-dropdown-arrow">▼</span></a>
+      <div class="nav-dropdown">
+        <a href="/services.html">Our Services</a>
+        <a href="/services.html#workshops">Workshops & Seminars</a>
+        <a href="/byron-bay-training.html">Clinical Skills Intensive</a>
+        <a href="/pat-research-teams.html">Training for Research Teams</a>
+        <a href="/services.html#consultancy">Consultancy Services</a>
+        <a href="/services.html#ongoing">Ongoing Education</a>
+      </div>
+    </li>
+    
+    <li class="nav-item">
+      <a href="/byron-bay-training.html">Training <span class="nav-dropdown-arrow">▼</span></a>
+      <div class="nav-dropdown">
+        <a href="/byron-bay-training.html">Byron Bay Intensive</a>
+        <a href="/online-course.html">Online Course (Part A)</a>
+        <a href="/pat-research-teams.html">Training for Research Teams</a>
+        <a href="/psychedelic-therapy-training-australia.html">Training Guide & Resources</a>
+      </div>
+    </li>
+    
+    <li class="nav-item">
+      <a href="/about.html">About <span class="nav-dropdown-arrow">▼</span></a>
+      <div class="nav-dropdown">
+        <a href="/about.html">About PIA</a>
+        <a href="/team.html">Our Team</a>
+        <a href="/partnerships.html">Partnerships</a>
+      </div>
+    </li>
+    
+    <li class="nav-item">
+      <a href="/psychedelic-therapy-training-australia.html">Resources <span class="nav-dropdown-arrow">▼</span></a>
+      <div class="nav-dropdown">
+        <a href="/psychedelic-therapy-training-australia.html">Training Guide</a>
+        <a href="/faq.html">FAQ</a>
+      </div>
+    </li>
+    
+    <li class="nav-item">
+      <a href="/contact.html">Contact</a>
+    </li>
+  </ul>
+  
+  <a href="/byron-bay-training.html" class="btn btn-navy nav-cta">Training</a>
+</nav>
+
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-bg-circles">
+    <div class="hero-bg-circle"></div>
+    <div class="hero-bg-circle"></div>
+    <div class="hero-bg-circle"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-label">July 20-24, 2026 • Byron Bay</div>
+    <h1>Essential Skills for Psychedelic-Assisted Therapy</h1>
+    <div class="hero-date">Hybrid: Online + In-person</div>
+    <p class="hero-desc">A 5-day intensive clinical skills workshop with Australia's pioneering researchers and MAPS-certified clinicians. Learn the evidence-based protocols for psilocybin and MDMA-assisted therapy.</p>
+    <div class="hero-actions">
+      <a href="#apply" class="btn btn-navy">Apply to Training</a>
+      <a href="#details" class="btn btn-outline">Learn More</a>
+    </div>
+  </div>
+</section>
+
+<div class="wave-divider">
+  <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+    <path d="M0,50 Q360,0 720,50 T1440,50 L1440,100 L0,100 Z" fill="#f3f8fa"/>
+  </svg>
+</div>
+
+<!-- Research Evidence -->
+<section class="section section-ice" id="research">
+  <div class="container">
+    <div class="section-label">Evidence-Based Approach</div>
+    <h2 class="section-title">Research Shows Remarkable Effectiveness</h2>
+    <p class="section-desc">Our training is grounded in rigorous clinical research and the latest psychedelic therapy protocols from leading institutions.</p>
+    
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">67–71%</div>
+        <h3>MDMA-Assisted Therapy Success</h3>
+        <p>Phase 3 randomized controlled trials show 67–71% of PTSD participants no longer met diagnostic criteria after MDMA-assisted psychotherapy, compared to 32% with placebo.</p>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">Multiple</div>
+        <h3>Psilocybin Trials</h3>
+        <p>Ongoing clinical trials demonstrate psilocybin-assisted therapy for Major Depressive Disorder, with promising early results and standardized treatment protocols being developed.</p>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">35 hrs</div>
+        <h3>Approved CPD Hours</h3>
+        <p>Complete 35 CPD hours approved by the Australian Psychological Society—recognized professional development for ongoing registration.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wave-divider">
+  <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+    <path d="M0,50 Q360,100 720,50 T1440,50 L1440,0 L0,0 Z" fill="#ffffff"/>
+  </svg>
+</div>
+
+<!-- Training Model -->
+<section class="section section-white" id="model">
+  <div class="container">
+    <div class="section-label">Learning Framework</div>
+    <h2 class="section-title">PIA's Bespoke Training Model</h2>
+    <p class="section-desc">We address three essential processes in developing therapist competency: theoretical knowledge, procedural skills, and reflective practice.</p>
+    
+    <div class="process-grid">
+      <div class="process-card">
+        <div class="process-number">01</div>
+        <h3>Theoretical Knowledge</h3>
+        <p>Pre-course online learning combined with limited didactic content. Build a strong foundation in psychedelic pharmacology, research, and clinical protocols.</p>
+      </div>
+      <div class="process-card">
+        <div class="process-number">02</div>
+        <h3>Procedural Skills</h3>
+        <p>Hands-on training through pairs work, group role-plays, demonstrations, and self-experiential learning. Practice the clinical skills you'll use immediately.</p>
+      </div>
+      <div class="process-card">
+        <div class="process-number">03</div>
+        <h3>Reflective Practice</h3>
+        <p>Deep integration work to understand your own patterns and responses. Develop the self-awareness essential to holding space for clients' transformations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wave-divider">
+  <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+    <path d="M0,50 Q360,0 720,50 T1440,50 L1440,100 L0,100 Z" fill="#f3f8fa"/>
+  </svg>
+</div>
+
+<!-- Trainers -->
+<section class="section section-ice" id="trainers">
+  <div class="container">
+    <div class="section-label">Expert Faculty</div>
+    <h2 class="section-title">Meet Your Trainers</h2>
+    <p class="section-desc">Learn directly from Australia's pioneering psychedelic researchers and clinicians—practitioners who've shaped the field.</p>
+    
+    <div class="trainers-grid">
+      <div class="trainer-card">
+        <div class="trainer-image">Renee Harvey</div>
+        <div class="trainer-content">
+          <h3>Renee Harvey</h3>
+          <div class="trainer-title">Clinical Psychologist</div>
+          <p>Trainer on Imperial College London's psilocybin trial. Extensive experience integrating somatic and psychedelic-assisted approaches with a focus on trauma resolution.</p>
+        </div>
+      </div>
+      <div class="trainer-card">
+        <div class="trainer-image">Stephen Bright</div>
+        <div class="trainer-content">
+          <h3>Stephen Bright, PhD</h3>
+          <div class="trainer-title">Psychologist & Researcher</div>
+          <p>First MAPS-certified clinician in Australia. Leading researcher in psychedelic therapeutic protocols and clinical trial methodology.</p>
+        </div>
+      </div>
+      <div class="trainer-card">
+        <div class="trainer-image">Petra Skeffington</div>
+        <div class="trainer-content">
+          <h3>Petra Skeffington, PhD</h3>
+          <div class="trainer-title">Clinical Psychologist & Researcher</div>
+          <p>First MAPS-certified clinician in Australia. Co-investigator on Australia's first psilocybin trial at St. Vincent's Hospital.</p>
+        </div>
+      </div>
+      <div class="trainer-card">
+        <div class="trainer-image">Diego Pinzon</div>
+        <div class="trainer-content">
+          <h3>Diego Pinzon, MA</h3>
+          <div class="trainer-title">Psychedelic Educator</div>
+          <p>Contributed to St. Vincent's psilocybin trials. First Australian to complete Psychedelics Today's 12-month Vital program. Focus on clinical integration and ethics.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wave-divider">
+  <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+    <path d="M0,50 Q360,100 720,50 T1440,50 L1440,0 L0,0 Z" fill="#ffffff"/>
+  </svg>
+</div>
+
+<!-- Eligibility -->
+<section class="section section-white" id="eligibility">
+  <div class="container">
+    <div class="section-label">Who Should Apply</div>
+    <h2 class="section-title">Eligibility Requirements</h2>
+    <p class="section-desc">We welcome both experienced practitioners looking to expand into psychedelic work and emerging facilitators ready to support lead therapists.</p>
+    
+    <div class="eligibility-grid">
+      <div class="eligibility-box">
+        <h3>Assistant Facilitators</h3>
+        <ul>
+          <li>Current or provisional registration with regulatory body (AHPRA, PACFA, ACA, or equivalent)</li>
+          <li>Fundamental knowledge in psychedelic substances</li>
+          <li>Enthusiasm to support and learn from experienced practitioners</li>
+        </ul>
+      </div>
+      <div class="eligibility-box">
+        <h3>Main Therapists/Facilitators</h3>
+        <ul>
+          <li>Current registration with regulatory body (AHPRA, PACFA)</li>
+          <li>Minimum 3 years professional practice experience including psychotherapy</li>
+          <li>Foundational knowledge of psychedelic substances and effects</li>
+          <li>Readiness to integrate new modality into your practice</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wave-divider">
+  <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+    <path d="M0,50 Q360,0 720,50 T1440,50 L1440,100 L0,100 Z" fill="#f3f8fa"/>
+  </svg>
+</div>
+
+<!-- Details & Pricing -->
+<section class="section section-ice" id="details">
+  <div class="container">
+    <div class="section-label">Training Details</div>
+    <h2 class="section-title">Dates, Location & Investment</h2>
+    
+    <div class="details-grid">
+      <div class="detail-item">
+        <h4>📅 Dates</h4>
+        <p>July 20–24, 2026</p>
+      </div>
+      <div class="detail-item">
+        <h4>📍 Location</h4>
+        <p>Byron Bay Community Centre, NSW</p>
+      </div>
+      <div class="detail-item">
+        <h4>👥 Trainers</h4>
+        <p>Renee, Stephen, Petra, Diego</p>
+      </div>
+      <div class="detail-item">
+        <h4>📚 Format</h4>
+        <p>Hybrid (Online + In-person)</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top: 4rem; margin-bottom: 2rem; color: var(--navy-deep); font-size: 1.8rem;">Investment</h3>
+    <div class="pricing-grid">
+      <div class="price-card featured">
+        <div class="price-tag">Early Bird (closes April 1)</div>
+        <div class="price">$4,295</div>
+        <div class="price-desc">AUD</div>
+        <div class="price-details">
+          • 5 days intensive<br/>
+          • 35 CPD hours approved<br/>
+          • All training materials<br/>
+          • Certificate of completion<br/>
+          <strong style="font-size: 0.9rem; margin-top: 0.8rem; display: block;">Save $400 vs. full price</strong>
+        </div>
+        <a href="#apply" class="btn btn-navy" style="width: 100%; margin-top: 1rem;">Secure Your Spot</a>
+      </div>
+      <div class="price-card">
+        <div class="price-tag">After April 1</div>
+        <div class="price">$4,695</div>
+        <div class="price-desc">AUD</div>
+        <div class="price-details">
+          • 5 days intensive<br/>
+          • 35 CPD hours approved<br/>
+          • All training materials<br/>
+          • Certificate of completion<br/>
+          <strong style="font-size: 0.9rem; margin-top: 0.8rem; display: block;">Standard pricing</strong>
+        </div>
+        <a href="#apply" class="btn btn-outline" style="width: 100%; margin-top: 1rem;">Apply Now</a>
+      </div>
+    </div>
+
+    <p style="text-align: center; margin-top: 2rem; color: var(--text-light); font-size: 0.95rem;">
+      <strong>Note:</strong> Training cost does not include accommodation. Early bird pricing ends April 1, 2026.
+    </p>
+  </div>
+</section>
+
+<div class="wave-divider">
+  <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+    <path d="M0,50 Q360,100 720,50 T1440,50 L1440,0 L0,0 Z" fill="#142c3d"/>
+  </svg>
+</div>
+
+<!-- FAQ & Accreditation -->
+<section class="section section-navy" id="faq">
+  <div class="container">
+    <div class="section-label">Questions Answered</div>
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    
+    <div class="faq-container">
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>Is this an officially accredited qualification?</h3>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>This is an important distinction: In Australia, a "Certificate" specifically means a recognized qualification from an RTO (Registered Training Organization). Since psychedelic-assisted therapy is not yet a regulated field with established standards, there is currently no RTO-certified qualification available in Australia or internationally.</p>
+          <p><strong>What we provide:</strong> A certificate of completion and high-quality, evidence-based training recognized by the TGA and accepted in clinical trials and private practice. Our graduates are working as psychedelic therapists in treating teams alongside TGA-regulated Authorized Prescribers.</p>
+          <p><strong>What matters more:</strong> In-person instructor experience, training quality, and demonstrated competence—not terminology. When evaluating any psychedelic training, focus on the credentials of the faculty, their direct clinical trial experience, and their ongoing practice.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>What's the difference between CPD hours and professional qualification?</h3>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>CPD (Continuing Professional Development) hours are recognition points toward maintaining your professional registration (e.g., with APS or AHPRA). Our 35 CPD hours satisfy these requirements.</p>
+          <p>A professional qualification is a formal credential certifying you to practice a specific role. Since psychedelic-assisted therapy is not yet officially regulated, no program can offer an "official" qualification—including ours. This applies to every training in Australia.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>Will I be able to practice immediately after?</h3>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>This 5-day intensive prepares you to take your first clinical steps as a psychedelic-assisted therapist. Competence, however, requires ongoing clinical experience, supervision, and reflective practice beyond the training.</p>
+          <p>The training goal is to equip you with foundational clinical skills, protocols, and safety knowledge. You'll need clinical supervision and a commitment to continued learning as you integrate this modality into your practice.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>What's included in the training cost?</h3>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>✓ 5 days of intensive training<br/>
+          ✓ 35 approved CPD hours<br/>
+          ✓ All course materials and handouts<br/>
+          ✓ Certificate of completion<br/>
+          ✓ Access to training community</p>
+          <p><strong>Not included:</strong> Accommodation, meals, or travel. Some training sessions may be conducted online.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>How do I apply?</h3>
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer">
+          <p>1. Complete our online application form<br/>
+          2. Pay $200 AUD refundable deposit to secure your place<br/>
+          3. Once accepted, pay the remaining balance<br/>
+          4. Receive pre-training materials and access details</p>
+          <p>Applications close 2 weeks before the training begins. Limited to 30 participants to ensure quality interaction.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="padding: 0 4rem;">
+  <div class="container">
+    <div class="cta-section" id="apply">
+      <h2>Ready to Lead the Future of Psychedelic Therapy?</h2>
+      <p>Join Australia's pioneering practitioners for 5 days of transformative training.</p>
+      <a href="https://gmk2v8v9sfd.typeform.com/to/s3nKzhiT" target="_blank" class="btn" style="background: var(--navy-deep); color: white;">Apply to the July Training</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2026 Psychedelic Institute Australia. All rights reserved.</p>
+  <p style="margin-top: 1rem;">Contact: <a href="mailto:info@psychedelicinstitute.com.au" style="color: var(--gold-accent); text-decoration: none;">info@psychedelicinstitute.com.au</a></p>
+</footer>
+
+<!-- Scripts -->
+<script>
+  // Navigation scroll effect
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  });
+
+  // FAQ accordion
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    question.addEventListener('click', () => {
+      faqItems.forEach(i => i.classList.remove('open'));
+      item.classList.add('open');
+    });
+  });
+
+  // Smooth scroll for anchors
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
